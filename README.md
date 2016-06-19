@@ -14,7 +14,7 @@ Lightweight scaffolding and build tools to quickly and easily develop a web appl
   - `cd` into the local folder
   - `npm install`
   - `npm run go`
-  - that's it! visit [](http://localhost:3000) to make sure it's working
+  - that's it! visit (http://localhost:3000) to make sure it's working
   
 ##Workflow
   
