@@ -23,3 +23,16 @@ Lightweight scaffolding and build tools to quickly and easily develop a web appl
   - view and test your app at localhost:3000
   
 ##Publishing
+
+  - disconnect your local repo from this one with `git remote remove origin`
+  - use `hub create YOUR-APP-NAME` to simultaneously create yourself a remote repo with the given name and create a local reference connecting the directory you're in to the remote you just created
+  - add, commit and push per usual
+
+##Deploying 
+
+The easiest thing to do is deploy to heroku. Once you have an account and you've installed the heroku command line tools, simply run: 
+ 
+  - `heroku create APP-NAME`
+  - `git push origin heroku`
+
+Have fun!
