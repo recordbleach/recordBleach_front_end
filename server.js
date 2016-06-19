@@ -14,6 +14,10 @@ app.get('/:filename', function (req, res) {
   res.sendFile(theRoot + req.params.filename);
 });
 
+app.get('/images/:filename', function (req, res) {
+  res.sendFile(theRoot + 'images/' + req.params.filename);
+});
+
 app.listen(PORT,function() {
 	console.log('\n\n===== listening for requests on port ' + PORT + ' =====\n\n')
 })
