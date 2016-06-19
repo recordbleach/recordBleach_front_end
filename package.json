@@ -5,11 +5,11 @@
   "main": "index.html",
   "scripts": {
     "go": "npm run watch && npm run start",
-    "start": "echo running server",
+    "start": "node server.js",
     "stop": "bash kill.sh",
+    "watch": "npm run watch-js && npm run watch-css",
     "watch-js": "./node_modules/.bin/watchify src/scripts/app.js -t babelify -o dist/app.js&",
-    "watch-css": "./node_modules/.bin/node-sass -w --output-style compressed src/styles/style.scss dist/style.css&",
-    "watch": "npm run watch-js && npm run watch-css"
+    "watch-css": "./node_modules/.bin/node-sass -w --output-style compressed src/styles/style.scss dist/style.css&"
   },
   "browserify": {
     "transform": [
