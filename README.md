@@ -19,7 +19,7 @@ Lightweight scaffolding and build tools to quickly and easily develop a web appl
 ##Workflow
   
   - you'll *only* write code in the files in the `src/` folder
-  - every time you save in that folder, your code will be read and transpiled into the `dist/` folder 
+  - every time you save in that folder, your code will be read and transpiled into the `dist/` folder. only files in `dist/` will be served up to the browser.
   - view and test your app at localhost:3000
   
 ##Publishing
