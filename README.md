@@ -25,7 +25,7 @@ Lightweight scaffolding and build tools to quickly and easily develop a web appl
 ##Publishing
 
   - disconnect your local repo from this one with `git remote remove origin`
-  - use `hub create YOUR-APP-NAME` to simultaneously create yourself a remote repo with the given name and create a local reference connecting the directory you're in to the remote you just created
+  - use `hub create YOUR-APP-NAME` to simultaneously (1) create yourself a remote repo with the given name and (2) create a local reference connecting the directory you're in to the remote you just created
   - add, commit and push per usual
 
 ##Deploying 
