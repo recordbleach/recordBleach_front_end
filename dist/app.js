@@ -19705,6 +19705,7 @@ var app = function app() {
 			return React.createElement('h1', null, 'YOLO');
 		}
 	});
+
 	ReactDOM.render(React.createElement(Header, null), document.querySelector('.container'));
 };
 

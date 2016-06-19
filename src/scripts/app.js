@@ -4,10 +4,11 @@ const React = require('react'),
 const app = function() {
 
 	const Header = React.createClass({
-		render: function() {
+		render: () => {
 			return <h1>YOLO</h1>
 		}
 	})
+
 	ReactDOM.render(<Header/>,document.querySelector('.container'))
 }
 
