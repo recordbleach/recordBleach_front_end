@@ -15,5 +15,5 @@ app.get('/:filename', function (req, res) {
 });
 
 app.listen(PORT,function() {
-	console.log('\n===== listening for requests on port ' + PORT + ' =====\n')
+	console.log('\n\n===== listening for requests on port ' + PORT + ' =====\n\n')
 })

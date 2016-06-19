@@ -10,7 +10,7 @@
     "watch": "npm run watch-js && npm run watch-css",
     "watch-js": "./node_modules/.bin/watchify src/scripts/app.js --verbose --transform babelify -o dist/app.js&",
     "watch-css": "./node_modules/.bin/node-sass -w --output-style compressed src/styles/style.scss dist/style.css&",
-    "watch": "npm run watch-js && npm run watch-css && echo '\n===== watching js and scss files in src/, writing changes to dist/ =====\n'&"
+    "watch": "npm run watch-js && npm run watch-css && echo '\n\n===== watching js and scss files in src/, writing changes to dist/ =====\n\n'&"
   },
   "browserify": {
     "transform": [
