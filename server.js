@@ -4,8 +4,6 @@ const app = express();
 const theRoot = __dirname + '/dist/',
 	PORT = process.env.PORT || 3000
 
-console.log(process.env.PORT)
-
 app.set('port', PORT)
 
 app.get('/', function (req, res) {
@@ -17,5 +15,5 @@ app.get('/:filename', function (req, res) {
 });
 
 app.listen(PORT,function() {
-	console.log('\n===== now... listening for requests on port ' + PORT + ' =====\n')
+	console.log('\n===== listening for requests on port ' + PORT + ' =====\n')
 })
