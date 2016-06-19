@@ -1,5 +1,14 @@
-const React = require('react')
+const React = require('react'),
+	ReactDOM = require('react-dom')
 
-const foo = "bar"
+const app = function() {
 
-const nuts = <div></div>
+	const Header = React.createClass({
+		render: function() {
+			return <h1>YOLO</h1>
+		}
+	})
+	ReactDOM.render(<Header/>,document.querySelector('.container'))
+}
+
+app()

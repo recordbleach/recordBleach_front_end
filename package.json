@@ -4,12 +4,11 @@
   "description": "a lightweight build system for transpiling js & scss, browserifying and running a simple node server. auto-installs backbone and react",
   "main": "index.html",
   "scripts": {
-    "go": "npm run scaffold && npm run watch && echo 'here we will also start the server'",
-    "scaffold": "mkdir dist src src/scripts src/styles && touch src/scripts/app.js src/styles/style.scss",
-    "start": "",
-    "watch-js": "./node_modules/.bin/watchify src/scripts/app.js -t babelify -o dist/app.js",
-    "watch-css": "./node_modules/.bin/node-sass -w --output-style compressed src/styles/style.scss dist/style.css",
-    "watch": "npm run watch-js"
+    "go": "npm run watch && npm run start",
+    "start": "echo running server",
+    "watch-js": "./node_modules/.bin/watchify src/scripts/app.js -t babelify -o dist/app.js&",
+    "watch-css": "./node_modules/.bin/node-sass -w --output-style compressed src/styles/style.scss dist/style.css&",
+    "watch": "npm run watch-js && npm run watch-css"
   },
   "browserify": {
     "transform": [
