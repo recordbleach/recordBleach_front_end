@@ -1,5 +1,5 @@
-const React = require('react'),
-	ReactDOM = require('react-dom')
+import React from 'react'
+import ReactDOM from 'react-dom'	
 
 const app = function() {
 
