@@ -8,8 +8,8 @@
     "start": "node server.js",
     "stop": "bash kill.sh",
     "watch": "npm run watch-js && npm run watch-css && echo '\n\n===== watching js and scss files in src/, writing changes to dist/ =====\n\n'&",
-    "watch-js": "./node_modules/.bin/watchify src/scripts/app.js --debug --verbose --transform babelify -o dist/app.js&",
-    "watch-css": "./node_modules/.bin/node-sass -w --output-style compressed src/styles/style.scss dist/style.css&"
+    "watch-js": "./node_modules/.bin/watchify src/scripts/app.js --debug --verbose --transform babelify -o dist/assets/js/app.js&",
+    "watch-css": "./node_modules/.bin/node-sass -w --output-style compressed src/styles/style.scss dist/assets/css/style.css&"
   },
   "browserify": {
     "transform": [
@@ -46,6 +46,8 @@
   },
   "dependencies": {
     "backbone": "^1.3.3",
+    "body-parser": "^1.15.2",
+    "ejs": "^2.4.2",
     "express": "^4.14.0",
     "jquery": "^3.0.0",
     "passport": "^0.3.2",
