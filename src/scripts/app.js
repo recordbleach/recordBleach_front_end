@@ -1,5 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'	
+import ReactDOM from 'react-dom'
+import OKCupid from 'okcupidjs'	
+import $ from 'jquery'
+import api from 'marvel-api'
+
 
 const app = function() {
 

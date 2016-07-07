@@ -1,5 +1,12 @@
 const express = require('express')
 const app = express()
+const OKCupid = require('okcupidjs')	
+
+const okc = new OKCupid()
+
+okc.login("richards.justind@gmail.com","andbutso",()=>{
+	okc.getQuickmatch((data)=>console.log(data))
+})
 
 const theRoot = __dirname + '/dist/',
 	PORT = process.env.PORT || 3000 
@@ -11,6 +18,10 @@ app.set('port', PORT)
 app.get('/', function (req, res) {
   res.sendFile(theRoot + 'index.html');
 });
+
+app.get('/okc', function(req,res){
+	res.data = 'okc'
+})
 
 // serving static files from dist/
 app.get('/:filename', function (req, res) {
