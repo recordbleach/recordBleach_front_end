@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import OKCupid from 'okcupidjs'	
 
 const app = function() {
 
