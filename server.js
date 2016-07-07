@@ -1,19 +1,10 @@
-<<<<<<< HEAD
 const express = require('express')
 const app = express()
-const OKCupid = require('okcupidjs')	
 
-const okc = new OKCupid()
-
-okc.login("richards.justind@gmail.com","andbutso",()=>{
-	okc.getQuickmatch((data)=>console.log(data))
-})
-=======
 let bodyParser = require('body-parser')
 let express = require('express')
 let renderFile = require('ejs').renderFile
 let app = express()
->>>>>>> 961c2a3ff39efa964964135475310caff76ded68
 
 let theRoot = __dirname + '/dist/',
 	PORT = process.env.PORT || 3000 
@@ -41,19 +32,9 @@ app.get('/', function (req, res) {
   res.render('index');
 });
 
-<<<<<<< HEAD
-app.get('/okc', function(req,res){
-	res.data = 'okc'
-})
-
-// serving static files from dist/
-app.get('/:filename', function (req, res) {
-  res.sendFile(theRoot + req.params.filename);
-=======
 //get the register page
 app.get('/register', function (req, res) {
   res.render('register');
->>>>>>> 961c2a3ff39efa964964135475310caff76ded68
 });
 
 
