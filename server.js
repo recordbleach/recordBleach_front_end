@@ -1,12 +1,9 @@
+const bodyParser = require('body-parser')
 const express = require('express')
+const renderFile = require('ejs').renderFile
 const app = express()
 
-let bodyParser = require('body-parser')
-let express = require('express')
-let renderFile = require('ejs').renderFile
-let app = express()
-
-let theRoot = __dirname + '/dist/',
+const theRoot = __dirname + '/dist/',
 	PORT = process.env.PORT || 3000 
 
 // got env port for heroku or elsewhere, else set to 3000 for dev
