@@ -10,8 +10,8 @@ Lightweight scaffolding and build tools to quickly and easily develop a web appl
 ##Getting started
 
   - clone this repo with `git clone git@github.com:magentanova/tiy-starter-kit.git THE-LOCAL-FOLDER-YOU-WANT-TO-CREATE`
-  - disconnect from my remote repo and point to your own (see [Publishing](#publishing))
   - `cd` into the local folder
+  - disconnect from my remote repo and point to your own (see [Publishing](#publishing))
   - `npm install`
   - `npm run go`
   - that's it! visit [http://localhost:3000](http://localhost:3000) to make sure it's working
