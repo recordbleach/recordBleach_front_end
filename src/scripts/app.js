@@ -3,13 +3,34 @@ import ReactDOM from 'react-dom'
 
 const app = function() {
 
-	const Header = React.createClass({
-		render: () => {
-			return <h1>YOLO</h1>
-		}
-	})
+    Backbone.Router.extend({
+        routes: {
+            'qualifyForm': '_handleQualifyForm',
+            'login': '_handleLogin',
+            'dataInput': '_handleDataInput',
+            '*default': '_handleDefault'
+        },
 
-	ReactDOM.render(<Header/>,document.querySelector('.container'))
+        _handleQualifyForm: function() {
+
+        },
+
+        _handleLogin: function() {
+
+        },
+
+        _handleDataInput: function() {
+
+        },
+
+        _handleDefault: function() {
+
+        },
+
+        initialize: function() {
+            Backbone.history.start()
+        }
+    })
 }
 
 app()
