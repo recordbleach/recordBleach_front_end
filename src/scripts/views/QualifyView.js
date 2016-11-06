@@ -52,3 +52,5 @@ const QualifyForm = React.createClass({
         )
     }
 })
+
+export default QualifyView

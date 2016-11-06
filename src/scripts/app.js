@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
+import QualifyView from './views/QualifyView'
 
 const app = function() {
 
@@ -13,7 +14,7 @@ const AppRouter = Backbone.Router.extend({
         },
 
         _handleQualifyForm: function() {
-
+            ReactDOM.render(<QualifyView />, document.querySelector('.container'))
         },
 
         _handleLogin: function() {
