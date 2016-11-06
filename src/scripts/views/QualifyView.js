@@ -47,10 +47,9 @@ const QualifyForm = React.createClass({
 
 
                 <p>Have you been convicted of felony in the past 5 years?</p>
-
                         <input type = 'radio' name = 'felony' value = 'no' />No <br />
                         <input type = 'radio' name = 'felony' value = 'yes' />Yes
-
+                        <p className = 'notEligible'>You are not eligible for expunction at this time</p>
 
                 <p>What is the date of the alleged crime you wish to have expunged?</p>
                     <input type = 'date' />
