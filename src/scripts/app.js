@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import QualifyView from './views/QualifyView'
+import LoginView from './views/LoginView'
 
 const app = function() {
 
@@ -18,7 +19,7 @@ const AppRouter = Backbone.Router.extend({
         },
 
         _handleLogin: function() {
-
+            ReactDOM.render(<LoginView />, document.querySelector('.container'))
         },
 
         _handleDataInput: function() {
