@@ -47,6 +47,7 @@ const QualifyForm = React.createClass({
                     <input type = 'radio' value ='no' />No <br />
 
                 <button>Continue to Login</button>
+                <button>Returning guest sign in here</button>
 
             </form>
         )
