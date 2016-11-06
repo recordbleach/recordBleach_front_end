@@ -25,7 +25,7 @@ const QualifyForm = React.createClass({
 
 
                 <p>What is the date of the alleged crime you wish to have expunged?</p>
-                    <input type = 'text' />
+                    <input type = 'date' />
 
                 <p>What is the class of alleged crime you wish to have expunged?</p>
                     <input type = 'radio' name = 'crimeClass' value = 'MisdC' />Misdemeanor C <br />
