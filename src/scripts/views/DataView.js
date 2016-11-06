@@ -52,7 +52,9 @@ const Petition = React.createClass({
                     <p>Offense (exactly as it is written on your record):</p><input type = 'text' />
                 </div>
                 {/* CHARGE PROFILE*/}
-                <div className = 'charge'></div>
+                <div className = 'charge'>
+                    <p>Date of charge:</p><input type = 'text'/>
+                </div>
                 {/* OVERTURN PROFILE*/}
                 <div className = 'overturn'></div>
                 {/* AGENCY PROFILE*/}
