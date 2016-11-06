@@ -4,6 +4,10 @@ import Backbone from 'backbone'
 import QualifyView from './views/QualifyView'
 import LoginView from './views/LoginView'
 import DataInputView from './views/DataView'
+import PrivacyPolicyView from './views/PrivacyPolicyView'
+import GlossaryView from './views/GlossaryView'
+import DisclaimerView from './views/DisclaimerView'
+
 
 const app = function() {
 
@@ -12,6 +16,9 @@ const AppRouter = Backbone.Router.extend({
             'qualifyForm': '_handleQualifyForm',
             'login': '_handleLogin',
             'dataInput': '_handleDataInput',
+            'privacyPolicy': '_handlePrivacyPolicy',
+            'glossary': '_handleGlossary',
+            'disclaimer': '_handleDisclaimer',
             '*default': '_handleDefault'
         },
 
@@ -25,6 +32,18 @@ const AppRouter = Backbone.Router.extend({
 
         _handleDataInput: function() {
             ReactDOM.render(<DataInputView />, document.querySelector('.container'))
+        },
+
+        _handlePrivacyPolicy: function(){
+            ReactDOM.render(<PrivacyPolicyView />, document.querySelector('.container'))
+        },
+
+        _handleGlossary: function(){
+            ReactDOM.render(<GlossaryView />, document.querySelector('.container'))
+        },
+
+        _handleDisclaimer: function(){
+            ReactDOM.render(<DisclaimerView />, document.querySelector('.container'))
         },
 
         _handleDefault: function() {

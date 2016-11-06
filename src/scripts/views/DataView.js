@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './header'
+import Footer from './footer'
 
 const DataInputView = React.createClass({
     render: function() {
@@ -7,6 +8,7 @@ const DataInputView = React.createClass({
             <div className = 'dataInputView'>
                 <Header/>
                 <Petition />
+                <Footer />
             </div>
         )
     }
