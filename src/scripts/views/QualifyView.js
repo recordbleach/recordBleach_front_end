@@ -13,10 +13,38 @@ const QualifyView = React.createClass({
 })
 
 const QualifyForm = React.createClass({
+
+    getInitialState: function() {
+        return {
+            chargedDisplay: 'none',
+            convictedDisplay: 'none',
+            overturnedDisplay: 'none'
+        }
+    },
+
+    _extendQuestions: function() {
+        this.setState({
+            chargedDisplay: this.state.arrested.checked.value === 'yes' ? 'block' : 'none'
+        })
+    },
+
     render: function() {
+
+        var _chargedStyle = {
+            display: this.state.chargedDisplay
+        }
+
+        var _convictedStyle = {
+            display: this.state.convictedDisplay
+        }
+
+        var _overturnedStyle = {
+            display: this.state.overturnedDisplay
+        }
+
         return (
             <div className = 'quallifyForm'>
-                <form>
+
 
                 <p>Have you been convicted of felony in the past 5 years?</p>
 
@@ -33,25 +61,33 @@ const QualifyForm = React.createClass({
                     <input type = 'radio' name = 'crimeClass' value = 'MisdA' />Misdemeanor A <br />
                     <input type = 'radio' name = 'crimeClass' value = 'Felony' />Felony
 
-                <p>Were you arrested? (non-custodial or otherwise)</p>
-                    <input type = 'radio' name = 'arrested' value = 'yes' />Yes <br />
-                    <input type = 'radio' name = 'arrested' value ='no' />No <br />
+                <div className = 'arrestedQualify'>
+                    <p>Were you arrested? (non-custodial or otherwise)</p>
+                        <input type = 'radio' name = 'arrested' value = 'yes' onChange = {this._extendQuestions}/>Yes <br />
+                        <input type = 'radio' name = 'arrested' value ='no' onChange = {this._extendQuestions}/>No <br />
+                </div>
 
-                <p>Were you charged?</p>
-                    <input type = 'radio' name = 'charged' value = 'yes' />Yes <br />
-                    <input type = 'radio' name = 'charged' value ='no' />No <br />
+                <div className = 'chargedQualify' style = {_chargedStyle}>
+                    <p>Were you charged?</p>
+                        <input type = 'radio' name = 'charged' value = 'yes' />Yes <br />
+                        <input type = 'radio' name = 'charged' value ='no' />No <br />
+                </div>
 
-                <p>Were you convicted?</p>
-                    <input type = 'radio' name = 'convicted' value = 'yes' />Yes <br />
-                    <input type = 'radio' name = 'convicted' value ='no' />No <br />
+                <div className = 'convictedQualify' style = {_convictedStyle}>
+                    <p>Were you convicted?</p>
+                        <input type = 'radio' name = 'convicted' value = 'yes' />Yes <br />
+                        <input type = 'radio' name = 'convicted' value ='no' />No <br />
+                </div>
 
-                <p>Was the conviction overturned or pardoned?</p>
-                    <input type = 'radio' name = 'overturned' value = 'yes' />Yes <br />
-                    <input type = 'radio' name = 'overturned' value ='no' />No <br />
+                <div className = 'overturnQualify' style = {_overturnedStyle}>
+                    <p>Was the conviction overturned or pardoned?</p>
+                        <input type = 'radio' name = 'overturned' value = 'yes' />Yes <br />
+                        <input type = 'radio' name = 'overturned' value ='no' />No <br />
+                </div>
 
                 <button>Continue to Login</button>
                 <button>Returning guest sign in here</button>
-                </form>
+
             </div>
         )
     }
