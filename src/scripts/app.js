@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import QualifyView from './views/QualifyView'
 import LoginView from './views/LoginView'
+import DataInputView from './views/DataView'
 
 const app = function() {
 
@@ -23,7 +24,7 @@ const AppRouter = Backbone.Router.extend({
         },
 
         _handleDataInput: function() {
-
+            ReactDOM.render(<DataInputView />, document.querySelector('.container'))
         },
 
         _handleDefault: function() {
