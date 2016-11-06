@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 const app = function() {
 
-    Backbone.Router.extend({
+const AppRouter = Backbone.Router.extend({
         routes: {
             'qualifyForm': '_handleQualifyForm',
             'login': '_handleLogin',
@@ -31,6 +31,7 @@ const app = function() {
             Backbone.history.start()
         }
     })
+    const appRouter = new AppRouter()
 }
 
 app()
