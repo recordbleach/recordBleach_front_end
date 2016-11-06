@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from './header'
 
 const QualifyView = React.createClass({
     render: function() {
