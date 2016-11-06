@@ -1,6 +1,10 @@
 import React from 'react'
 import Header from './header'
+<<<<<<< HEAD
 import ACTIONS from '../actions'
+=======
+import Footer from './footer'
+>>>>>>> master
 
 const LoginView = React.createClass({
     render: function() {
@@ -8,6 +12,7 @@ const LoginView = React.createClass({
             <div className = 'LoginView'>
                 <Header />
                 <Login />
+                <Footer />
             </div>
         )
     }
