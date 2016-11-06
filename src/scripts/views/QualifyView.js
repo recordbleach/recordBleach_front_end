@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './header'
+import Footer from './footer'
 
 const QualifyView = React.createClass({
     render: function() {
@@ -7,6 +8,7 @@ const QualifyView = React.createClass({
             <div className = 'qualifyView'>
                 <Header />
                 <QualifyForm />
+                <Footer />
             </div>
         )
     }
