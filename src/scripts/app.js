@@ -7,16 +7,6 @@ import DataInputView from './views/DataView'
 
 const app = function() {
 
-    const UserModel = Backbone.Model.extend({
-        url: '',
-        idAttribute: ''
-    })
-
-    const PetitionModel = Backbone.Model.extend({
-        url: '',
-        idAttribute: ''
-    })
-
     const AppRouter = Backbone.Router.extend({
         routes: {
             'qualifyForm': '_handleQualifyForm',
@@ -34,9 +24,6 @@ const app = function() {
         },
 
         _handleDataInput: function() {
-            var userModel = new UserModel()
-
-            userModel.fetch()
 
             ReactDOM.render(<DataInputView />, document.querySelector('.container'))
         },

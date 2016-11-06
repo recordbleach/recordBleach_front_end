@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './header'
+import ACTIONS from '../actions'
 
 const LoginView = React.createClass({
     render: function() {
@@ -13,23 +14,32 @@ const LoginView = React.createClass({
 })
 
 const Login = React.createClass({
+
+    _handleRegister: function(evt) {
+        evt.preventDefault()
+
+        if(evt.target.registerPassword.value === evt.target.registerConfirmPassword.value) {
+            console.log(evt.target.registerEmail.value, evt.target.registerPassword.value)
+            ACTIONS._registerUser({
+                email: evt.target.registerEmail.value,
+                password: evt.target.registerPassword.value
+            })
+        }
+        else {
+            alert('Error. Please check to make sure passwords match')
+        }
+    },
+
     render: function() {
-        return(
-            <div className = 'login'>
-                <div className = 'newUser user'>
-                    <div className = 'email'>Enter a valid email address (this is how you will receive your files)
-                        <input type = 'text' placeholder = 'email address' />
-                        <input type = 'text' placeholder = 'password' />
-                        <input type = 'text' placeholder = 'confirm password' />
-                    </div>
-                </div>
-                <div className = 'returningUser user'>
-                    <div className = 'email'>Returning users enter your email and password
-                        <input type = 'text' placeholder = 'email' />
-                        <input type = 'text' placeholder = 'password' />
-                    </div>
-                </div>
-                <button>Login</button>
+        return (
+            <div className = 'signinForm'>
+                <form className = 'signin' id = 'register' onSubmit = {this._handleRegister}>
+                    <h3>Register New User</h3>
+                    <input type = 'text' name = 'registerEmail' placeholder = 'email' />
+                    <input type = 'password' name = 'registerPassword' placeholder = 'password' />
+                    <input type = 'password' name = 'registerConfirmPassword' placeholder = 'confirm password' />
+                    <button type = 'submit'>Register</button>
+                </form>
             </div>
         )
     }

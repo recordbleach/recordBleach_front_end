@@ -14,33 +14,11 @@ const QualifyView = React.createClass({
 
 const QualifyForm = React.createClass({
 
-    getInitialState: function() {
-        return {
-            chargedDisplay: 'none',
-            convictedDisplay: 'none',
-            overturnedDisplay: 'none'
-        }
-    },
-
-    _extendQuestions: function() {
-        this.setState({
-            chargedDisplay: this.state.arrested.checked.value === 'yes' ? 'block' : 'none'
-        })
+    _handleGuestReturn: function() {
+        location.hash = 'login'
     },
 
     render: function() {
-
-        var _chargedStyle = {
-            display: this.state.chargedDisplay
-        }
-
-        var _convictedStyle = {
-            display: this.state.convictedDisplay
-        }
-
-        var _overturnedStyle = {
-            display: this.state.overturnedDisplay
-        }
 
         return (
             <div className = 'quallifyForm'>
@@ -66,26 +44,26 @@ const QualifyForm = React.createClass({
                         <input type = 'radio' name = 'arrested' value ='no' onChange = {this._extendQuestions}/>No <br />
                 </div>
 
-                <div className = 'chargedQualify' style = {_chargedStyle}>
+                <div className = 'chargedQualify'>
                     <p>Were you charged?</p>
                         <input type = 'radio' name = 'charged' value = 'yes' />Yes <br />
                         <input type = 'radio' name = 'charged' value ='no' />No <br />
                 </div>
 
-                <div className = 'convictedQualify' style = {_convictedStyle}>
+                <div className = 'convictedQualify'>
                     <p>Were you convicted?</p>
                         <input type = 'radio' name = 'convicted' value = 'yes' />Yes <br />
                         <input type = 'radio' name = 'convicted' value ='no' />No <br />
                 </div>
 
-                <div className = 'overturnQualify' style = {_overturnedStyle}>
+                <div className = 'overturnQualify'>
                     <p>Was the conviction overturned or pardoned?</p>
                         <input type = 'radio' name = 'overturned' value = 'yes' />Yes <br />
                         <input type = 'radio' name = 'overturned' value ='no' />No <br />
                 </div>
 
                 <button>Continue to Login</button>
-                <button>Returning guest sign in here</button>
+                <button onClick = {this._handleGuestReturn}>Returning guest sign in here</button>
 
             </div>
         )

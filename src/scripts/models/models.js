@@ -13,7 +13,7 @@ UserAuthModel.register = function(newUserData) {
     return $.ajax({
         method: 'POST',
         type: 'json',
-        url: '/api/registrations',
+        url: 'https://tx-recordbleach-api.herokuapp.com/api/registrations',
         data: newUserData
     })
 }
@@ -53,3 +53,17 @@ UserAuthModel.logout = function() {
 UserAuthModel.getCurrentUser = function() {
     return localStorage[app_name + '_user'] ? JSON.parse(localStorage[app_name + '_user']) : null
 }
+
+export const User = UserAuthModel.extend({
+
+})
+
+const UserModel = Backbone.Model.extend({
+    url: '',
+    idAttribute: ''
+})
+
+const PetitionModel = Backbone.Model.extend({
+    url: '',
+    idAttribute: ''
+})
