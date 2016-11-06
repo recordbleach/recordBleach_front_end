@@ -1,5 +1,5 @@
 import STORE from './store'
-import {User} from './models/models'
+import {User, PetitionModel} from './models/models'
 
 const ACTIONS = {
 
@@ -8,6 +8,16 @@ const ACTIONS = {
             user: newUserObj
         }
         User.register(userObj)
+    },
+
+    _submitPetition: function(newPetitionObj) {
+        var petitionObj = {
+            petition: newPetitionObj
+        }
+
+        var petition = new PetitionModel(petitionObj)
+
+        petition.save()
     }
 }
 

@@ -62,6 +62,10 @@ const Petition = React.createClass({
         })
     },
 
+    _handlePetitionSubmit: function(evt) {
+        evt.preventDefault()
+    },
+
     render: function() {
         var toggleProfileClass = {
             className: this.state.setProfileClass
@@ -81,7 +85,7 @@ const Petition = React.createClass({
 
         return(
             <div className = 'petition'>
-                <form>
+                <form onSubmit = {this._handlePetitionSubmit}>
                     {/* PERSONAL PROFILE*/}
                     <h3 onClick={this._toggleProfileButton}>{this.state.profileButtonSymbol} Personal Profile</h3>
                     <div id = 'profile' className={toggleProfileClass.className}>
@@ -172,6 +176,9 @@ const Petition = React.createClass({
                         <input type = 'text' placeholder = 'zipcode'/>
                         <input type = 'text' placeholder = 'county' />
                     </div>
+
+                    <p>ONCE YOU HIT SUBMIT YOUR FORMS WILL BE GENERATED AND EMAILED TO THE ADDRESS YOU PROVIDED. ALL INFORMATION WILL BE REMOVED FROM THIS SITE</p>
+                    <button type = 'submit'>Submit</button>
                 </form>
             </div>
         )
