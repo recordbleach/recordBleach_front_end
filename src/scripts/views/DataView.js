@@ -15,13 +15,76 @@ const DataInputView = React.createClass({
 })
 
 const Petition = React.createClass({
+
+     getInitialState: function(){
+        return {
+            setProfileClass: "untoggled",
+            profileButtonSymbol: "+",
+            setArrestClass: "untoggled",
+            arrestButtonSymbol: "+",
+            setChargeClass: "untoggled",
+            chargeButtonSymbol: "+",
+            setOverturnClass: "untoggled",
+            overturnButtonSymbol: "+",
+            setAgencyClass: "untoggled",
+            agencyButtonSymbol: "+"
+        }
+    },
+
+    _toggleProfileButton: function(){
+        this.setState({
+            setProfileClass:this.state.profileButtonSymbol === '+' ? 'toggled' : 'untoggled',
+            profileButtonSymbol: this.state.profileButtonSymbol === '+' ? '-' : '+'
+        })
+    },
+    _toggleArrestButton: function(){
+        this.setState({
+            setArrestClass:this.state.arrestButtonSymbol === '+' ? 'toggled' : 'untoggled',
+            arrestButtonSymbol: this.state.arrestButtonSymbol === '+' ? '-' : '+'
+        })
+    },
+    _toggleChargeButton: function(){
+        this.setState({
+            setChargeClass:this.state.chargeButtonSymbol === '+' ? 'toggled' : 'untoggled',
+            chargeButtonSymbol: this.state.chargeButtonSymbol === '+' ? '-' : '+'
+        })
+    },
+    _toggleOverturnButton: function(){
+        this.setState({
+            setOverturnClass:this.state.overturnButtonSymbol === '+' ? 'toggled' : 'untoggled',
+            overturnButtonSymbol: this.state.overturnButtonSymbol === '+' ? '-' : '+'
+        })
+    },
+    _toggleAgencyButton: function(){
+        this.setState({
+            setAgencyClass:this.state.agencyButtonSymbol === '+' ? 'toggled' : 'untoggled',
+            agencyButtonSymbol: this.state.agencyButtonSymbol === '+' ? '-' : '+'
+        })
+    },
+
     render: function() {
+        var toggleProfileClass = {
+            className: this.state.setProfileClass
+        }
+        var toggleArrestClass = {
+            className: this.state.setArrestClass
+        }
+        var toggleChargeClass = {
+            className: this.state.setChargeClass
+        }
+        var toggleOverturnClass = {
+            className: this.state.setOverturnClass
+        }
+        var toggleAgencyClass = {
+            className: this.state.setAgencyClass
+        }
+
         return(
             <div className = 'petition'>
                 <form>
                     {/* PERSONAL PROFILE*/}
-                    <h3>Personal Profile</h3>
-                    <div className = 'profile'>
+                    <h3 onClick={this._toggleProfileButton}>{this.state.profileButtonSymbol} Personal Profile</h3>
+                    <div id = 'profile' className={toggleProfileClass.className}>
                         <p>What is your full legal name?</p><input type ='text'/>
                         <p>What is your date of birth?</p><input type = 'date'/>
 
@@ -56,8 +119,8 @@ const Petition = React.createClass({
                         </div>
                     </div>
                     {/* ARREST PROFILE*/}
-                    <h3>Arrest</h3>
-                    <div className = 'arrest'>
+                    <h3 onClick={this._toggleArrestButton}>{this.state.arrestButtonSymbol}Arrest</h3>
+                    <div id = 'arrest' className={toggleArrestClass.className}>
                         <p>Date of the arrest:</p><input type = 'date'/>
                         <p>Location of the arrest:
                             <input type = 'text' placeholder = 'city'/><br/>
@@ -68,8 +131,8 @@ const Petition = React.createClass({
                     </div>
 
                     {/* CHARGE PROFILE*/}
-                    <h3>Charge</h3>
-                    <div className = 'charge'>
+                    <h3 onClick={this._toggleChargeButton}>{this.state.chargeButtonSymbol}Charge</h3>
+                    <div id = 'charge' className={toggleChargeClass.className}>
                         <p>Date of charge:</p><input type = 'date'/>
                         <p>List all the offenses (separate with a comma ,):</p>
                             <textarea placeholder = 'Offenses'></textarea>
@@ -82,8 +145,8 @@ const Petition = React.createClass({
 
                     </div>
                     {/* OVERTURN PROFILE*/}
-                    <h3>Disposition</h3>
-                    <div className = 'overturn'>
+                    <h3 onClick={this._toggleOverturnButton}>{this.state.overturnButtonSymbol}Disposition</h3>
+                    <div id = 'overturn' className={toggleOverturnClass.className}>
                         <p>Convicted:</p>
                             <input type = 'radio' name = 'convicted' value = 'yes'/>Yes<br/>
                             <input type = 'radio' name = 'convicted' value = 'no'/>No<br/>
@@ -101,8 +164,8 @@ const Petition = React.createClass({
                             <input type = 'radio' name = 'overturn' value = 'no'/>No<br/>
                     </div>
                     {/* AGENCY PROFILE*/}
-                    <h3>Agency</h3>
-                    <div className = 'agency'>Address of arresting agency:
+                    <h3 onClick={this._toggleAgencyButton}>{this.state.agencyButtonSymbol}Agency</h3>
+                    <div id = 'agency' className={toggleAgencyClass.className}>Address of arresting agency:
                         <input type = 'text' placeholder = 'address'/>
                         <input type = 'text' placeholder = 'city' />
                         <input type = 'text' placeholder = 'state' />
@@ -114,4 +177,5 @@ const Petition = React.createClass({
         )
     }
 })
+
 export default DataInputView
