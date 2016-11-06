@@ -58,10 +58,11 @@ const QualifyForm = React.createClass({
                     <input type = 'date' />
 
                 <p>What is the class of alleged crime you wish to have expunged?</p>
-                    <input type = 'radio' name = 'crimeClass' value = 'MisdC' />Misdemeanor C <br />
-                    <input type = 'radio' name = 'crimeClass' value = 'MisdB' />Misdemeanor B <br />
-                    <input type = 'radio' name = 'crimeClass' value = 'MisdA' />Misdemeanor A <br />
-                    <input type = 'radio' name = 'crimeClass' value = 'Felony' />Felony
+                <p><b>WARNING: Make sure the Statute of Limitations (SoL) has passed before attempting to expunge your record.</b></p>
+                    <input type = 'radio' name = 'crimeClass' value = 'MisdC' />Misdemeanor C (SoL: Two Years)<br />
+                    <input type = 'radio' name = 'crimeClass' value = 'MisdB' />Misdemeanor B (SoL: Two Years)<br />
+                    <input type = 'radio' name = 'crimeClass' value = 'MisdA' />Misdemeanor A (Sol: Two Years)<br />
+                    <input type = 'radio' name = 'crimeClass' value = 'Felony' />Felony (SoL: Varies based on crime; contact a lawyer for more information)
 
                 <div className = 'arrestedQualify'>
                     <p>Were you arrested? (non-custodial or otherwise)</p>
