@@ -58,12 +58,8 @@ export const User = UserAuthModel.extend({
 
 })
 
-const UserModel = Backbone.Model.extend({
-    url: '',
-    idAttribute: ''
-})
 
-const PetitionModel = Backbone.Model.extend({
-    url: '',
-    idAttribute: ''
+export const PetitionModel = Backbone.Model.extend({
+    url: 'https://tx-recordbleach-api.herokuapp.com/api/petitions',
+    idAttribute: 'id'
 })
