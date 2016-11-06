@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './header'
 import Footer from './footer'
+import ACTIONS from '../actions'
 
 const DataInputView = React.createClass({
     render: function() {
@@ -64,6 +65,51 @@ const Petition = React.createClass({
 
     _handlePetitionSubmit: function(evt) {
         evt.preventDefault()
+
+        ACTIONS._submitPetition({
+            legal_name:
+            dob:
+            ssn:
+            dl:
+            address:
+            city:
+            state:
+            county:
+            zip:
+            sex:
+            race:
+            offense_date:
+            offense_county:
+            arresting_agency:
+            arrest_date:
+            a_address:
+            a_city:
+            a_state:
+            a_county:
+            charged:
+            charge_date:
+            charged_offenses:
+            charge_cause_number:
+            county_court_at_law: false,
+            county_court_at_law_number: null,
+            municipal_court: false,
+            municipal_court_name: false,
+            district_court: true,
+            district_court_name:
+            acquittal:
+            acquittal_date:
+            dismissal:
+            dismissal_date:
+            convicted:
+            conviction_date:
+            pardon:
+            pardon_date:
+            overturned:
+            overturned_date:
+            probation:
+            deferred_adjudication:
+        })
+
     },
 
     render: function() {
@@ -89,10 +135,10 @@ const Petition = React.createClass({
                     {/* PERSONAL PROFILE*/}
                     <h3 onClick={this._toggleProfileButton}>{this.state.profileButtonSymbol} Personal Profile</h3>
                     <div id = 'profile' className={toggleProfileClass.className}>
-                        <p>What is your full legal name?</p><input type ='text'/>
-                        <p>What is your date of birth?</p><input type = 'date'/>
+                        <p>Full legal name:</p><input type ='text'/>
+                        <p>Date of birth:</p><input type = 'date'/>
 
-                        <p>What is your race?</p>
+                        <p>Race:</p>
                             <input type = 'radio' name = 'race' value = 'HoL' />Hispanic or Latino <br />
                             <input type = 'radio' name = 'race' value = 'AIoAN' />American Indian or Alaska Native <br />
                             <input type = 'radio' name = 'race' value = 'Asian' />Asian <br />
@@ -101,10 +147,10 @@ const Petition = React.createClass({
                             <input type = 'radio' name = 'race' value = 'White' />White <br />
 
 
-                        <p>What is your sex?
+                        <p>Sex:</p>
                             <input type = 'radio' name = 'sex'/>Male<br/>
                             <input type = 'radio' name = 'sex'/>Female
-                        </p>
+
 
                         <div className = 'address'>Address at time of the arrest:
                             <input type = 'text' placeholder = 'address'/>
