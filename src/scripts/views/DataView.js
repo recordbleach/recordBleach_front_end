@@ -63,51 +63,57 @@ const Petition = React.createClass({
         })
     },
 
+    _formatDate(dateString) {
+        var splitDateArray = dateString.split('-')
+        var formattedDateString = splitDateArray.join('')
+        return formattedDateString
+    },
+
     _handlePetitionSubmit: function(evt) {
         evt.preventDefault()
-
+        var boundThis = this
         ACTIONS._submitPetition({
-            legal_name:
-            dob:
-            ssn:
-            dl:
-            address:
-            city:
-            state:
-            county:
-            zip:
-            sex:
-            race:
-            offense_date:
-            offense_county:
-            arresting_agency:
-            arrest_date:
-            a_address:
-            a_city:
-            a_state:
-            a_county:
-            charged:
-            charge_date:
-            charged_offenses:
-            charge_cause_number:
+            legal_name: evt.target.legalName.value,
+            dob: boundThis._formatDate(evt.target.dob.value),
+            ssn: evt.target.ssn.value,
+            dl: evt.target.dl.value,
+            address: evt.target.currentAddress.value,
+            city: evt.target.currentCity.value,
+            state: evt.target.currentState.value,
+            county: evt.target.currentCounty.value,
+            zip: evt.target.currentZip.value,
+            sex: 'NULL',
+            race:'NULL',
+            offense_date:'NULL',
+            offense_county:'NULL',
+            arresting_agency:'NULL',
+            arrest_date:'NULL',
+            a_address: evt.target.arrestAddress.value,
+            a_city: evt.target.arrestCity.value,
+            a_state: evt.target.arrestState.value,
+            a_county: evt.target.arrestCounty.value,
+            charged: 'NULL',
+            charge_date:'NULL',
+            charged_offenses: evt.target.offenses.value,
+            charge_cause_number: evt.target.cause.value,
             county_court_at_law: false,
             county_court_at_law_number: null,
             municipal_court: false,
             municipal_court_name: false,
             district_court: true,
-            district_court_name:
-            acquittal:
-            acquittal_date:
-            dismissal:
-            dismissal_date:
-            convicted:
-            conviction_date:
-            pardon:
-            pardon_date:
-            overturned:
-            overturned_date:
-            probation:
-            deferred_adjudication:
+            district_court_name: 'NULL',
+            acquittal: 'NULL',
+            acquittal_date:'NULL',
+            dismissal:'NULL',
+            dismissal_date:'NULL',
+            convicted:'NULL',
+            conviction_date:'NULL',
+            pardon:'NULL',
+            pardon_date:'NULL',
+            overturned:'NULL',
+            overturned_date:'NULL',
+            probation:'NULL',
+            deferred_adjudication:'NULL'
         })
 
     },
@@ -135,9 +141,10 @@ const Petition = React.createClass({
                     {/* PERSONAL PROFILE*/}
                     <h3 onClick={this._toggleProfileButton}>{this.state.profileButtonSymbol} Personal Profile</h3>
                     <div id = 'profile' className={toggleProfileClass.className}>
-                        <p>Full legal name:</p><input type ='text'/>
-                        <p>Date of birth:</p><input type = 'date'/>
-
+                        <p>Full legal name:</p><input type ='text' name = 'legalName'/>
+                        <p>Date of birth:</p><input type = 'date' name = 'dob'/>
+                        <p>Social Security Number (include dashes):</p><input type = 'password' name = 'ssn' />
+                        <p>Driver's License (leave blank if not applicable):</p><input type = 'text' name = 'dl' />
                         <p>Race:</p>
                             <input type = 'radio' name = 'race' value = 'HoL' />Hispanic or Latino <br />
                             <input type = 'radio' name = 'race' value = 'AIoAN' />American Indian or Alaska Native <br />
@@ -151,26 +158,26 @@ const Petition = React.createClass({
                             <input type = 'radio' name = 'sex'/>Male<br/>
                             <input type = 'radio' name = 'sex'/>Female
 
-
-                        <div className = 'address'>Address at time of the arrest:
-                            <input type = 'text' placeholder = 'address'/>
-                            <input type = 'text' placeholder = 'city' />
-                            <input type = 'text' placeholder = 'state' />
-                            <input type = 'text' placeholder = 'zipcode'/>
-                            <input type = 'text' placeholder = 'county' />
-                        </div>
-
                         <div className = 'address'>Current address:
-                            <input type = 'text' placeholder = 'address'/>
-                            <input type = 'text' placeholder = 'city' />
-                            <input type = 'text' placeholder = 'state' />
-                            <input type = 'text' placeholder = 'zipcode'/>
-                            <input type = 'text' placeholder = 'county' />
+                            <input type = 'text' placeholder = 'address' name = 'currentAddress'/>
+                            <input type = 'text' placeholder = 'city' name = 'currentCity'/>
+                            <input type = 'text' placeholder = 'state' name = 'currentState'/>
+                            <input type = 'text' placeholder = 'zipcode' name = 'currentZip'/>
+                            <input type = 'text' placeholder = 'county' name = 'currentCounty'/>
                         </div>
                     </div>
                     {/* ARREST PROFILE*/}
                     <h3 onClick={this._toggleArrestButton}>{this.state.arrestButtonSymbol}Arrest</h3>
                     <div id = 'arrest' className={toggleArrestClass.className}>
+
+                        <div className = 'address'>Address at time of the arrest:
+                            <input type = 'text' placeholder = 'address' name = 'arrestAddress'/>
+                            <input type = 'text' placeholder = 'city' name = 'arrestCity'/>
+                            <input type = 'text' placeholder = 'state' name = 'arrestState'/>
+                            <input type = 'text' placeholder = 'zipcode' name = 'arrestZip'/>
+                            <input type = 'text' placeholder = 'county' name = 'arrestCounty'/>
+                        </div>
+
                         <p>Date of the arrest:</p><input type = 'date'/>
                         <p>Location of the arrest:
                             <input type = 'text' placeholder = 'city'/><br/>
@@ -184,14 +191,14 @@ const Petition = React.createClass({
                     <h3 onClick={this._toggleChargeButton}>{this.state.chargeButtonSymbol}Charge</h3>
                     <div id = 'charge' className={toggleChargeClass.className}>
                         <p>Date of charge:</p><input type = 'date'/>
-                        <p>List all the offenses (separate with a comma ,):</p>
-                            <textarea placeholder = 'Offenses'></textarea>
+                        <p>List all the offenses:</p>
+                            <textarea placeholder = 'Offenses' name = 'offenses'></textarea>
                         <p>County, city, name of court where charges were filed:</p>
                             County: <input type = 'text' />
                             City: <input type = 'text' />
                             Name: <input type = 'text' />
 
-                        <p>Cause # (exactly as written on criminal history):</p> <input type = 'text' />
+                        <p>Cause # (exactly as written on criminal history):</p><input type = 'text' name = 'cause' />
 
                     </div>
                     {/* OVERTURN PROFILE*/}
