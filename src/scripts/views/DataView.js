@@ -12,16 +12,16 @@ const DataInputView = React.createClass({
     }
 })
 
-
 const Petition = React.createClass({
     render: function() {
         return(
             <div className = 'petition'>
                 <form>
                     {/* PERSONAL PROFILE*/}
+                    <h3>Personal Profile</h3>
                     <div className = 'profile'>
                         <p>What is your full legal name?</p><input type ='text'/>
-                        <p>What is your date of birth?</p><input type = 'text'/>
+                        <p>What is your date of birth?</p><input type = 'date'/>
 
                         <p>What is your race?</p>
                             <input type = 'radio' name = 'race' value = 'HoL' />Hispanic or Latino <br />
@@ -37,7 +37,7 @@ const Petition = React.createClass({
                             <input type = 'radio' name = 'sex'/>Female
                         </p>
 
-                        <div className = 'address'>What was your address at the time of the arrest?
+                        <div className = 'address'>Address at time of the arrest:
                             <input type = 'text' placeholder = 'address'/>
                             <input type = 'text' placeholder = 'city' />
                             <input type = 'text' placeholder = 'state' />
@@ -45,7 +45,7 @@ const Petition = React.createClass({
                             <input type = 'text' placeholder = 'county' />
                         </div>
 
-                        <div className = 'address'>What is your current address?
+                        <div className = 'address'>Current address:
                             <input type = 'text' placeholder = 'address'/>
                             <input type = 'text' placeholder = 'city' />
                             <input type = 'text' placeholder = 'state' />
@@ -54,8 +54,9 @@ const Petition = React.createClass({
                         </div>
                     </div>
                     {/* ARREST PROFILE*/}
+                    <h3>Arrest</h3>
                     <div className = 'arrest'>
-                        <p>Date of the arrest:</p><input type = 'text'/>
+                        <p>Date of the arrest:</p><input type = 'date'/>
                         <p>Location of the arrest:
                             <input type = 'text' placeholder = 'city'/><br/>
                             <input type = 'text' placeholder = 'county'/>
@@ -63,14 +64,49 @@ const Petition = React.createClass({
                         <p>Agency who arrested you:</p><input type = 'text'/>
                         <p>Offense (exactly as it is written on your record):</p><input type = 'text' />
                     </div>
+
                     {/* CHARGE PROFILE*/}
+                    <h3>Charge</h3>
                     <div className = 'charge'>
-                        <p>Date of charge:</p><input type = 'text'/>
+                        <p>Date of charge:</p><input type = 'date'/>
+                        <p>List all the offenses (separate with a comma ,):</p>
+                            <textarea placeholder = 'Offenses'></textarea>
+                        <p>County, city, name of court where charges were filed:</p>
+                            County: <input type = 'text' />
+                            City: <input type = 'text' />
+                            Name: <input type = 'text' />
+
+                        <p>Cause # (exactly as written on criminal history):</p> <input type = 'text' />
+
                     </div>
                     {/* OVERTURN PROFILE*/}
-                    <div className = 'overturn'></div>
+                    <h3>Disposition</h3>
+                    <div className = 'overturn'>
+                        <p>Convicted:</p>
+                            <input type = 'radio' name = 'convicted' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' name = 'convicted' value = 'no'/>No<br/>
+
+                        <p>Dismissed:</p>
+                            <input type = 'radio' name = 'dismiss' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' name = 'dismiss' value = 'no'/>No<br/>
+
+                        <p>Pardoned:</p>
+                            <input type = 'radio' name = 'pardon' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' name = 'pardon' value = 'no'/>No<br/>
+
+                        <p>Overturned:</p>
+                            <input type = 'radio' name = 'overturn' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' name = 'overturn' value = 'no'/>No<br/>
+                    </div>
                     {/* AGENCY PROFILE*/}
-                    <div className = 'agency'></div>
+                    <h3>Agency</h3>
+                    <div className = 'agency'>Address of arresting agency:
+                        <input type = 'text' placeholder = 'address'/>
+                        <input type = 'text' placeholder = 'city' />
+                        <input type = 'text' placeholder = 'state' />
+                        <input type = 'text' placeholder = 'zipcode'/>
+                        <input type = 'text' placeholder = 'county' />
+                    </div>
                 </form>
             </div>
         )
