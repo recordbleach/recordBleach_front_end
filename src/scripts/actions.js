@@ -5,7 +5,12 @@ const ACTIONS = {
 
     _registerUser: function(newUserObj) {
         console.log(newUserObj)
-        User.register(newUserObj)
+        var userObj =  {
+            user: newUserObj
+        }
+
+        console.log(userObj)
+        User.register(userObj)
     }
 }
 

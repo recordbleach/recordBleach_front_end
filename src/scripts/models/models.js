@@ -2,13 +2,13 @@ import Backbone from 'backbone'
 import $ from 'jquery'
 
 const UserAuthModel = Backbone.Model.extend({
-    urlRoot: '/api/users',
+    url: 'https://tx-recordbleach-api.herokuapp.com/',
     idAttribute: 'id'
 })
 
 UserAuthModel.register = function(newUserData) {
-    if(typeof newUserData !== 'object') {  throw new Error("User.register needs to be of type object with email & password properties") }
-    if(!newUserData.email || !newUserData.password) {  throw new Error("object needs email + password properties") }
+    // if(typeof newUserData !== 'object') {  throw new Error("User.register needs to be of type object with email & password properties") }
+    // if(!newUserData.email || !newUserData.password) {  throw new Error("object needs email + password properties") }
 
     return $.ajax({
         method: 'POST',
