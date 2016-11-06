@@ -21,8 +21,15 @@ const Login = React.createClass({
                         <input type = 'text' placeholder = 'email address' />
                         <input type = 'text' placeholder = 'password' />
                         <input type = 'text' placeholder = 'confirm password' />
+                    </div>
                 </div>
-                <div className = 'returningUser user'></div>
+                <div className = 'returningUser user'>
+                    <div className = 'email'>Returning users enter your email and password
+                        <input type = 'text' placeholder = 'email' />
+                        <input type = 'text' placeholder = 'password' />
+                    </div>
+                </div>
+                <button>Login</button>
             </div>
         )
     }
