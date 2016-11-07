@@ -69,6 +69,19 @@ const Petition = React.createClass({
         return formattedDateString
     },
 
+    _createBool: function(answerString) {
+        if(answerString === 'yes') {
+            return true
+        }
+        else {
+            return false
+        }
+    },
+
+    _handleCourt: function(courtInput) {
+
+    },
+
     _handlePetitionSubmit: function(evt) {
         evt.preventDefault()
         var boundThis = this
@@ -86,14 +99,14 @@ const Petition = React.createClass({
             race: evt.target.race.value,
             offense_date:boundThis._formatDate(evt.target.offenseDate.value),
             offense_county:evt.target.arrestCounty,
-            arresting_agency:'NULL',
+            arresting_agency: evt.target.arrestingAgency.value,
             arrest_date:boundThis._formatDate(evt.target.arrestDate.value),
             a_address: evt.target.arrestAddress.value,
             a_city: evt.target.arrestCity.value,
             a_state: evt.target.arrestState.value,
             a_county: evt.target.arrestCounty.value,
-            charged: 'NULL',
-            charge_date:'NULL',
+            charged: boundThis._createBool(evt.target.charged.value),
+            charge_date:boundThis._formatDate(evt.target.chargeDate.value),
             charged_offenses: evt.target.offenses.value,
             charge_cause_number: evt.target.cause.value,
             county_court_at_law: false,
@@ -183,24 +196,32 @@ const Petition = React.createClass({
                             <input type = 'text' placeholder = 'city'/><br/>
                             <input type = 'text' placeholder = 'county' name = 'arrestCounty'/>
                         </p>
-                        <p>Agency who arrested you:</p><input type = 'text'/>
-                        <p>Offense (exactly as it is written on your record):</p><input type = 'text' />
+                        <p>Agency that arrested you:</p><input type = 'text' name = 'arrestingAgency'/>
+                        <p>Arrest Offense (exactly as it is written on your record):</p><input type = 'text' name = 'arrestOffense' />
                     </div>
 
                     {/* CHARGE PROFILE*/}
                     <h3 onClick={this._toggleChargeButton}>{this.state.chargeButtonSymbol}Charge</h3>
                     <div id = 'charge' className={toggleChargeClass.className}>
-                        <p>Date of charge:</p><input type = 'date'/>
+                        <p>Charged:</p>
+                            <input type = 'radio' name = 'charged' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' name = 'charged' value = 'no'/>No
+                        <p>Date of charge:</p><input type = 'date' name = 'chargeDate'/>
                         <p>List all the offenses:</p>
                             <textarea placeholder = 'Offenses' name = 'offenses'></textarea>
-                        <p>County, city, name of court where charges were filed:</p>
+                        <p>Court where charges were filed:</p>
                             County: <input type = 'text' />
                             City: <input type = 'text' />
                             Name: <input type = 'text' />
+                        <p>Court Type:</p>
+                            <input type = 'radio' name = 'court' value = 'County'/>County<br/>
+                            <input type = 'radio' name = 'court' value = 'Municipal'/>Municipal<br/>
+                            <input type = 'radio' name = 'court' value = 'District'/>District
 
                         <p>Cause # (exactly as written on criminal history):</p><input type = 'text' name = 'cause' />
 
                     </div>
+
                     {/* OVERTURN PROFILE*/}
                     <h3 onClick={this._toggleOverturnButton}>{this.state.overturnButtonSymbol}Disposition</h3>
                     <div id = 'overturn' className={toggleOverturnClass.className}>
