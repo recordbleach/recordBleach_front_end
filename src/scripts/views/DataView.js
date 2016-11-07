@@ -78,10 +78,6 @@ const Petition = React.createClass({
         }
     },
 
-    _handleCourt: function(courtInput) {
-
-    },
-
     _handlePetitionSubmit: function(evt) {
         evt.preventDefault()
         var boundThis = this
@@ -115,18 +111,18 @@ const Petition = React.createClass({
             municipal_court_name: false,
             district_court: true,
             district_court_name: 'NULL',
-            acquittal: 'NULL',
+            acquittal: boundThis._createBool(evt.target.acquittal.value),
             acquittal_date:boundThis._formatDate(evt.target.acquittalDate.value),
-            dismissal:'NULL',
+            dismissal: boundThis._createBool(evt.target.dismiss.value),
             dismissal_date:boundThis._formatDate(evt.target.dismissDate.value),
-            convicted:'NULL',
+            convicted: boundThis._createBool(evt.target.convicted.value),
             conviction_date:boundThis._formatDate(evt.target.convictionDate.value),
-            pardon:'NULL',
+            pardon:boundThis._createBool(evt.target.pardon.value),
             pardon_date:boundThis._formatDate(evt.target.pardonDate.value),
-            overturned:'NULL',
+            overturned:boundThis._createBool(evt.target.overturn.value),
             overturned_date:boundThis._formatDate(evt.target.overturnDate.value),
-            probation:'NULL',
-            deferred_adjudication:'NULL'
+            probation:boundThis._createBool(evt.target.probation.value),
+            deferred_adjudication:boundThis._createBool(evt.target.adjudication.value)
         })
 
     },
@@ -210,9 +206,9 @@ const Petition = React.createClass({
                         <p>List all the offenses:</p>
                             <textarea placeholder = 'Offenses' name = 'offenses'></textarea>
                         <p>Court where charges were filed:</p>
-                            County: <input type = 'text' />
-                            City: <input type = 'text' />
-                            Name: <input type = 'text' />
+                            County: <input type = 'text' name = 'courtCounty'/>
+                            City: <input type = 'text' name = 'courtCity'/>
+                            Name: <input type = 'text' name = 'courtName'/>
                         <p>Court Type:</p>
                             <input type = 'radio' name = 'court' value = 'County'/>County<br/>
                             <input type = 'radio' name = 'court' value = 'Municipal'/>Municipal<br/>
@@ -249,6 +245,14 @@ const Petition = React.createClass({
                             <input type = 'radio' name = 'acquittal' value = 'yes'/>Yes<br/>
                             <input type = 'radio' name = 'acquittal' value = 'no'/>No<br/>
                             <input type = 'date' name = 'acquittalDate' />
+
+                        <p>Completed Probation:</p>
+                            <input type = 'radio' name = 'probation' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' name = 'probation' value = 'no'/>No
+
+                        <p>Completed deferred adjudication:</p>
+                            <input type = 'radio' name = 'adjudication' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' name = 'adjudication' value = 'no'/>No
                     </div>
                     {/* AGENCY PROFILE*/}
                     <h3 onClick={this._toggleAgencyButton}>{this.state.agencyButtonSymbol}Agency</h3>

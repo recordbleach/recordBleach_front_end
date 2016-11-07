@@ -11,7 +11,7 @@ const ACTIONS = {
     },
 
     _submitPetition: function(newPetitionObj) {
-        // console.log(newPetitionObj)
+        console.log(newPetitionObj)
     }
 }
 
