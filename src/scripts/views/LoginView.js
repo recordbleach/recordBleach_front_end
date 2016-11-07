@@ -43,6 +43,13 @@ const Login = React.createClass({
                     <input type = 'password' name = 'registerConfirmPassword' placeholder = 'confirm password' />
                     <button type = 'submit'>Register</button>
                 </form>
+
+                <form className = 'signin' id = 'login' onSubmit = {this._handleLogin}>
+                    <h3>Sign In Existing User</h3>
+                    <input type = 'text' name = 'registerEmail' placeholder = 'email' />
+                    <input type = 'password' name = 'registerPassword' placeholder = 'password' />
+                    <button type = 'submit'>Sign In</button>
+                </form>
             </div>
         )
     }

@@ -11,13 +11,7 @@ const ACTIONS = {
     },
 
     _submitPetition: function(newPetitionObj) {
-        var petitionObj = {
-            petition: newPetitionObj
-        }
-
-        var petition = new PetitionModel(petitionObj)
-
-        petition.save()
+        console.log(newPetitionObj)
     }
 }
 
