@@ -63,7 +63,7 @@ const Petition = React.createClass({
         })
     },
 
-    _formatDate(dateString) {
+    _formatDate: function(dateString) {
         var splitDateArray = dateString.split('-')
         var formattedDateString = splitDateArray.join('')
         return formattedDateString
@@ -82,8 +82,8 @@ const Petition = React.createClass({
             state: evt.target.currentState.value,
             county: evt.target.currentCounty.value,
             zip: evt.target.currentZip.value,
-            sex: 'NULL',
-            race:'NULL',
+            sex: evt.target.sex.value,
+            race: evt.target.race.value,
             offense_date:boundThis._formatDate(evt.target.offenseDate.value),
             offense_county:evt.target.arrestCounty,
             arresting_agency:'NULL',
@@ -146,17 +146,17 @@ const Petition = React.createClass({
                         <p>Social Security Number (include dashes):</p><input type = 'password' name = 'ssn' />
                         <p>Driver's License (leave blank if not applicable):</p><input type = 'text' name = 'dl' />
                         <p>Race:</p>
-                            <input type = 'radio' name = 'race' value = 'HoL' />Hispanic or Latino <br />
-                            <input type = 'radio' name = 'race' value = 'AIoAN' />American Indian or Alaska Native <br />
+                            <input type = 'radio' name = 'race' value = 'Hispanic or Latino' />Hispanic or Latino <br />
+                            <input type = 'radio' name = 'race' value = 'American Indian or Alaska Native' />American Indian or Alaska Native <br />
                             <input type = 'radio' name = 'race' value = 'Asian' />Asian <br />
-                            <input type = 'radio' name = 'race' value = 'BoAA' />Black or African American <br />
-                            <input type = 'radio' name = 'race' value = 'NHoOPI' />Native Hawaiian or Other Pacific Islander <br />
+                            <input type = 'radio' name = 'race' value = 'Black or African American' />Black or African American <br />
+                            <input type = 'radio' name = 'race' value = 'Native Hawaiian or Other Pacific Islander' />Native Hawaiian or Other Pacific Islander <br />
                             <input type = 'radio' name = 'race' value = 'White' />White <br />
 
 
                         <p>Sex:</p>
-                            <input type = 'radio' name = 'sex'/>Male<br/>
-                            <input type = 'radio' name = 'sex'/>Female
+                            <input type = 'radio' value = 'male' name = 'sex'/>Male<br/>
+                            <input type = 'radio' value = 'female' name = 'sex'/>Female
 
                         <div className = 'address'>Current address:
                             <input type = 'text' placeholder = 'address' name = 'currentAddress'/>
