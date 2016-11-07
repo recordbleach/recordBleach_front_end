@@ -84,10 +84,10 @@ const Petition = React.createClass({
             zip: evt.target.currentZip.value,
             sex: 'NULL',
             race:'NULL',
-            offense_date:'NULL',
-            offense_county:'NULL',
+            offense_date:boundThis._formatDate(evt.target.offenseDate.value),
+            offense_county:evt.target.arrestCounty,
             arresting_agency:'NULL',
-            arrest_date:'NULL',
+            arrest_date:boundThis._formatDate(evt.target.arrestDate.value),
             a_address: evt.target.arrestAddress.value,
             a_city: evt.target.arrestCity.value,
             a_state: evt.target.arrestState.value,
@@ -103,15 +103,15 @@ const Petition = React.createClass({
             district_court: true,
             district_court_name: 'NULL',
             acquittal: 'NULL',
-            acquittal_date:'NULL',
+            acquittal_date:boundThis._formatDate(evt.target.acquittalDate.value),
             dismissal:'NULL',
-            dismissal_date:'NULL',
+            dismissal_date:boundThis._formatDate(evt.target.dismissDate.value),
             convicted:'NULL',
-            conviction_date:'NULL',
+            conviction_date:boundThis._formatDate(evt.target.convictionDate.value),
             pardon:'NULL',
-            pardon_date:'NULL',
+            pardon_date:boundThis._formatDate(evt.target.pardonDate.value),
             overturned:'NULL',
-            overturned_date:'NULL',
+            overturned_date:boundThis._formatDate(evt.target.overturnDate.value),
             probation:'NULL',
             deferred_adjudication:'NULL'
         })
@@ -177,11 +177,11 @@ const Petition = React.createClass({
                             <input type = 'text' placeholder = 'zipcode' name = 'arrestZip'/>
                             <input type = 'text' placeholder = 'county' name = 'arrestCounty'/>
                         </div>
-
-                        <p>Date of the arrest:</p><input type = 'date'/>
+                        <p>Date of the offense (may be different than the date of the arrest):</p><input type = 'date' name = 'offenseDate'/>
+                        <p>Date of the arrest:</p><input type = 'date' name = 'arrestDate'/>
                         <p>Location of the arrest:
                             <input type = 'text' placeholder = 'city'/><br/>
-                            <input type = 'text' placeholder = 'county'/>
+                            <input type = 'text' placeholder = 'county' name = 'arrestCounty'/>
                         </p>
                         <p>Agency who arrested you:</p><input type = 'text'/>
                         <p>Offense (exactly as it is written on your record):</p><input type = 'text' />
@@ -207,18 +207,27 @@ const Petition = React.createClass({
                         <p>Convicted:</p>
                             <input type = 'radio' name = 'convicted' value = 'yes'/>Yes<br/>
                             <input type = 'radio' name = 'convicted' value = 'no'/>No<br/>
+                            <input type = 'date' name = 'convictionDate' />
 
                         <p>Dismissed:</p>
                             <input type = 'radio' name = 'dismiss' value = 'yes'/>Yes<br/>
                             <input type = 'radio' name = 'dismiss' value = 'no'/>No<br/>
+                            <input type = 'date' name = 'dismissDate' />
 
                         <p>Pardoned:</p>
                             <input type = 'radio' name = 'pardon' value = 'yes'/>Yes<br/>
                             <input type = 'radio' name = 'pardon' value = 'no'/>No<br/>
+                            <input type = 'date' name = 'pardonDate' />
 
                         <p>Overturned:</p>
                             <input type = 'radio' name = 'overturn' value = 'yes'/>Yes<br/>
                             <input type = 'radio' name = 'overturn' value = 'no'/>No<br/>
+                            <input type = 'date' name = 'overturnDate' />
+
+                        <p>Acquitted:</p>
+                            <input type = 'radio' name = 'acquittal' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' name = 'acquittal' value = 'no'/>No<br/>
+                            <input type = 'date' name = 'acquittalDate' />
                     </div>
                     {/* AGENCY PROFILE*/}
                     <h3 onClick={this._toggleAgencyButton}>{this.state.agencyButtonSymbol}Agency</h3>
