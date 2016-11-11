@@ -7,11 +7,18 @@ const ACTIONS = {
         var userObj =  {
             user: newUserObj
         }
-        User.register(userObj)
+        console.log(User.register(userObj))
+        console.log(User.getToken(newUserObj))
     },
 
     _submitPetition: function(newPetitionObj) {
-        console.log(newPetitionObj)
+        console.log('new object', newPetitionObj)
+        var petitionObj = {
+            petition: newPetitionObj
+        }
+
+        var petition = new PetitionModel(petitionObj)
+        petition.save()
     }
 }
 

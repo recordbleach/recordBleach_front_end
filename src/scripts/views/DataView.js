@@ -78,12 +78,31 @@ const Petition = React.createClass({
         }
     },
 
+    _courtBool: function(courtInput) {
+        var courtObj = {
+            county: false,
+            municipal: false,
+            district: false
+        }
+
+        if(courtInput === 'county') {
+            courtObj.county = true
+        }
+        else if(courtInput === 'municipal') {
+            courtObj.municipal = true
+        }
+        else {
+            courtObj.district = true
+        }
+        return courtObj
+    },
+
     _handlePetitionSubmit: function(evt) {
         evt.preventDefault()
-        var boundThis = this
+
         ACTIONS._submitPetition({
             legal_name: evt.target.legalName.value,
-            dob: boundThis._formatDate(evt.target.dob.value),
+            dob: this._formatDate(evt.target.dob.value),
             ssn: evt.target.ssn.value,
             dl: evt.target.dl.value,
             address: evt.target.currentAddress.value,
@@ -93,36 +112,36 @@ const Petition = React.createClass({
             zip: evt.target.currentZip.value,
             sex: evt.target.sex.value,
             race: evt.target.race.value,
-            offense_date:boundThis._formatDate(evt.target.offenseDate.value),
+            offense_date:this._formatDate(evt.target.offenseDate.value),
             offense_county:evt.target.arrestCounty,
             arresting_agency: evt.target.arrestingAgency.value,
-            arrest_date:boundThis._formatDate(evt.target.arrestDate.value),
+            arrest_date:this._formatDate(evt.target.arrestDate.value),
             a_address: evt.target.arrestAddress.value,
             a_city: evt.target.arrestCity.value,
             a_state: evt.target.arrestState.value,
             a_county: evt.target.arrestCounty.value,
-            charged: boundThis._createBool(evt.target.charged.value),
-            charge_date:boundThis._formatDate(evt.target.chargeDate.value),
+            charged: this._createBool(evt.target.charged.value),
+            charge_date:this._formatDate(evt.target.chargeDate.value),
             charged_offenses: evt.target.offenses.value,
             charge_cause_number: evt.target.cause.value,
-            county_court_at_law: false,
-            county_court_at_law_number: null,
-            municipal_court: false,
-            municipal_court_name: false,
-            district_court: true,
-            district_court_name: 'NULL',
-            acquittal: boundThis._createBool(evt.target.acquittal.value),
-            acquittal_date:boundThis._formatDate(evt.target.acquittalDate.value),
-            dismissal: boundThis._createBool(evt.target.dismiss.value),
-            dismissal_date:boundThis._formatDate(evt.target.dismissDate.value),
-            convicted: boundThis._createBool(evt.target.convicted.value),
-            conviction_date:boundThis._formatDate(evt.target.convictionDate.value),
-            pardon:boundThis._createBool(evt.target.pardon.value),
-            pardon_date:boundThis._formatDate(evt.target.pardonDate.value),
-            overturned:boundThis._createBool(evt.target.overturn.value),
-            overturned_date:boundThis._formatDate(evt.target.overturnDate.value),
-            probation:boundThis._createBool(evt.target.probation.value),
-            deferred_adjudication:boundThis._createBool(evt.target.adjudication.value)
+            court_name: evt.target.courtName.value,
+            court_city: evt.target.courtCity.value,
+            court_county: evt.target.courtCounty.value,
+            county_court_at_law: this._courtBool(evt.target.court.value).county,
+            municipal_court: this._courtBool(evt.target.court.value).municipal,
+            district_court: this._courtBool(evt.target.court.value).district,
+            acquittal: this._createBool(evt.target.acquittal.value),
+            acquittal_date:this._formatDate(evt.target.acquittalDate.value),
+            dismissal: this._createBool(evt.target.dismiss.value),
+            dismissal_date:this._formatDate(evt.target.dismissDate.value),
+            convicted: this._createBool(evt.target.convicted.value),
+            conviction_date:this._formatDate(evt.target.convictionDate.value),
+            pardon:this._createBool(evt.target.pardon.value),
+            pardon_date:this._formatDate(evt.target.pardonDate.value),
+            overturned:this._createBool(evt.target.overturn.value),
+            overturned_date:this._formatDate(evt.target.overturnDate.value),
+            probation:this._createBool(evt.target.probation.value),
+            deferred_adjudication:this._createBool(evt.target.adjudication.value)
         })
 
     },
@@ -210,9 +229,9 @@ const Petition = React.createClass({
                             City: <input type = 'text' name = 'courtCity'/>
                             Name: <input type = 'text' name = 'courtName'/>
                         <p>Court Type:</p>
-                            <input type = 'radio' name = 'court' value = 'County'/>County<br/>
-                            <input type = 'radio' name = 'court' value = 'Municipal'/>Municipal<br/>
-                            <input type = 'radio' name = 'court' value = 'District'/>District
+                            <input type = 'radio' name = 'court' value = 'county'/>County<br/>
+                            <input type = 'radio' name = 'court' value = 'municipal'/>Municipal<br/>
+                            <input type = 'radio' name = 'court' value = 'mistrict'/>District
 
                         <p>Cause # (exactly as written on criminal history):</p><input type = 'text' name = 'cause' />
 
@@ -246,11 +265,11 @@ const Petition = React.createClass({
                             <input type = 'radio' name = 'acquittal' value = 'no'/>No<br/>
                             <input type = 'date' name = 'acquittalDate' />
 
-                        <p>Completed Probation:</p>
+                        <p>Assigned Probation:</p>
                             <input type = 'radio' name = 'probation' value = 'yes'/>Yes<br/>
                             <input type = 'radio' name = 'probation' value = 'no'/>No
 
-                        <p>Completed deferred adjudication:</p>
+                        <p>Assigned Deferred Adjudication:</p>
                             <input type = 'radio' name = 'adjudication' value = 'yes'/>Yes<br/>
                             <input type = 'radio' name = 'adjudication' value = 'no'/>No
                     </div>

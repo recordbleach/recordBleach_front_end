@@ -22,7 +22,6 @@ const Login = React.createClass({
         evt.preventDefault()
 
         if(evt.target.registerPassword.value === evt.target.registerConfirmPassword.value) {
-            console.log(evt.target.registerEmail.value, evt.target.registerPassword.value)
             ACTIONS._registerUser({
                 email: evt.target.registerEmail.value,
                 password: evt.target.registerPassword.value
