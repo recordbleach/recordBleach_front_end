@@ -27,7 +27,7 @@ UserAuthModel.getToken = function(newUserData) {
         data: $.extend(newUserData, {
             grant_type: 'password'
         })
-    })
+    }).then((tokenData) => console.log(tokenData))
 }
 
 
