@@ -27,7 +27,14 @@ const ACTIONS = {
         })
         console.log(petition)
         console.log(localStorage.token)
-        petition.save()
+        petition.save().then(
+            (response) => {
+                console.log(response)
+                alert('Thank you for your submission')
+            },
+            (error) => {
+                console.log(error)
+            })
     }
 }
 
