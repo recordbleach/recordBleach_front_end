@@ -113,7 +113,7 @@ const Petition = React.createClass({
             sex: evt.target.sex.value,
             race: evt.target.race.value,
             offense_date:this._formatDate(evt.target.offenseDate.value),
-            offense_county:evt.target.arrestCounty,
+            offense_county: evt.target.arrestCounty.value,
             arresting_agency: evt.target.arrestingAgency.value,
             arrest_date:this._formatDate(evt.target.arrestDate.value),
             a_address: evt.target.arrestAddress.value,
