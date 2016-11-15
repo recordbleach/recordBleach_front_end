@@ -1,5 +1,12 @@
 import STORE from './store'
 import {User, PetitionModel} from './models/models'
+import Backbone from 'backbone'
+
+Backbone.$.ajaxSetup({
+    headers: {
+        'Authorization': 'Bearer ' + localStorage.token
+    }
+})
 
 const ACTIONS = {
 
@@ -12,19 +19,17 @@ const ACTIONS = {
 
     },
 
+    _setHeaders: function(inputObj) {
+        inputObj.setRequestHeader('Authorization', 'Bearer ' + localStorage.token)
+    },
+
     _submitPetition: function(newPetitionObj) {
         console.log(newPetitionObj)
         var petitionObj = {
             petition: newPetitionObj
         }
-
         var petition = new PetitionModel(petitionObj)
-        petition.set({
-            header: {
-                key: 'Authorization',
-                value: 'Bearer' + ' ' + localStorage.token
-            }
-        })
+
         console.log(petition)
         console.log(localStorage.token)
         petition.save().then(
@@ -34,7 +39,7 @@ const ACTIONS = {
             },
             (error) => {
                 console.log(error)
-            })
+        })
     }
 }
 
