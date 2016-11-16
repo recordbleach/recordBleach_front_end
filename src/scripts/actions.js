@@ -19,11 +19,8 @@ const ACTIONS = {
 
     },
 
-    _setHeaders: function(inputObj) {
-        inputObj.setRequestHeader('Authorization', 'Bearer ' + localStorage.token)
-    },
-
     _submitPetition: function(newPetitionObj) {
+
         console.log(newPetitionObj)
         var petitionObj = {
             petition: newPetitionObj
