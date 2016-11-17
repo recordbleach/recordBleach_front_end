@@ -28,7 +28,7 @@ const ACTIONS = {
         var petition = new PetitionModel(petitionObj)
 
         console.log(petition)
-        console.log(localStorage.token)
+
         petition.save().then(
             (response) => {
                 console.log(response)

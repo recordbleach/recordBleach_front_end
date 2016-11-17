@@ -66,7 +66,8 @@ const Petition = React.createClass({
     _formatDate: function(dateString) {
         var splitDateArray = dateString.split('-')
         var formattedDateString = splitDateArray.join('')
-        return formattedDateString
+        var formattedDateNumber = parseInt(formattedDateString)
+        return formattedDateNumber
     },
 
     _createBool: function(answerString) {
