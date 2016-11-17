@@ -1,4 +1,4 @@
-  import React from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import QualifyView from './views/QualifyView'
