@@ -21,16 +21,12 @@ const ACTIONS = {
     },
 
     _submitPetition: function(newPetitionObj) {
-
-        console.log(newPetitionObj)
         var petitionObj = {
             petition: newPetitionObj
         }
         var petition = new PetitionModel(petitionObj)
 
-        console.log(petition)
-
-        petition.save().then(
+        petition.save([], {dataType: 'html'}).then(
             (response) => {
                 console.log(response)
                 alert('Thank you for your submission')
@@ -42,28 +38,14 @@ const ACTIONS = {
 
     _getPetitions: function() {
 
-        // var petition = new PetitionModel()
-
-        // petition.fetch({
-        //     dataType: 'application/pdf',
-        //     url: 'https://tx-recordbleach-api.herokuapp.com/api/petitions/35.pdf'
-        // }).then(
-        //     (response) => {
-        //         console.log(response)
-        //         console.log(response.responseText)
-        //     },
-        //     (error) => {
-        //         console.log(error)
-        //         console.log(error.responseText)
-        // })
         return $.ajax({
             method: 'GET',
-            type: 'application/pdf',
+            dataType: 'application/pdf',
+            //right now this is getting a specific petition as a test, will figure out the rest later
             url: 'https://tx-recordbleach-api.herokuapp.com/api/petitions/35.pdf'
         }).then(
             (response) => {
                 console.log(response)
-                console.log(response.responseText)
             },
             (error) => {
                 console.log(error)
