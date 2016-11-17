@@ -148,7 +148,7 @@ const Petition = React.createClass({
     },
 
     _handleGetPetition: function() {
-        console.log(ACTIONS._getPetitions())
+        ACTIONS._getPetitions()
     },
 
     render: function() {

@@ -42,13 +42,28 @@ const ACTIONS = {
 
     _getPetitions: function() {
 
-        $.ajax({
+        // var petition = new PetitionModel()
+
+        // petition.fetch({
+        //     dataType: 'application/pdf',
+        //     url: 'https://tx-recordbleach-api.herokuapp.com/api/petitions/35.pdf'
+        // }).then(
+        //     (response) => {
+        //         console.log(response)
+        //         console.log(response.responseText)
+        //     },
+        //     (error) => {
+        //         console.log(error)
+        //         console.log(error.responseText)
+        // })
+        return $.ajax({
             method: 'GET',
             type: 'application/pdf',
             url: 'https://tx-recordbleach-api.herokuapp.com/api/petitions/35.pdf'
         }).then(
             (response) => {
                 console.log(response)
+                console.log(response.responseText)
             },
             (error) => {
                 console.log(error)
