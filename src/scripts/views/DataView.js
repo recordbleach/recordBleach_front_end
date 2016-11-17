@@ -147,10 +147,6 @@ const Petition = React.createClass({
 
     },
 
-    _handleGetPetition: function() {
-        ACTIONS._getPetitions()
-    },
-
     render: function() {
         var toggleProfileClass = {
             className: this.state.setProfileClass
@@ -291,7 +287,6 @@ const Petition = React.createClass({
                     <p>ONCE YOU HIT SUBMIT YOUR FORMS WILL BE GENERATED AND EMAILED TO THE ADDRESS YOU PROVIDED. ALL INFORMATION WILL BE REMOVED FROM THIS SITE</p>
                     <button type = 'submit'>Submit</button>
                 </form>
-                <button onClick = {this._handleGetPetition}>Get Petition</button>
             </div>
         )
     }
