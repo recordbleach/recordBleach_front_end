@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './header'
+import Footer from './footer'
 
 const HomeView = React.createClass({
 
@@ -8,6 +9,7 @@ const HomeView = React.createClass({
             <div className = 'homeView'>
                 <Header />
                 <HomeBody />
+                <Footer />
             </div>
         )
     }
