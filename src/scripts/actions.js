@@ -15,9 +15,20 @@ const ACTIONS = {
         var userObj =  {
             user: newUserObj
         }
-        console.log(User.register(userObj))
-        console.log(User.getToken(newUserObj))
+        User.register(userObj).then(() => this._loginUser(newUserObj),
+            (error) => {
+                console.log(error)
+        })
+    },
 
+    _loginUser:function(userObj) {
+        User.login(userObj).then(
+            (response) => {
+                location.hash = 'dataInput'
+            },
+            (error) => {
+                console.log(error)
+            })
     },
 
     _submitPetition: function(newPetitionObj) {

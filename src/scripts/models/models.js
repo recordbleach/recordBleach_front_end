@@ -22,7 +22,7 @@ UserAuthModel.register = function(newUserData) {
     })
 }
 
-UserAuthModel.getToken = function(newUserData) {
+UserAuthModel.login = function(newUserData) {
     if(typeof newUserData !== 'object') {
         throw new Error("User.register needs to be of type object with email & password properties")
     }

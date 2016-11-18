@@ -6,9 +6,9 @@ var Header = React.createClass({
 			<header>
 				<h1>Record Bleach</h1>
                 <nav>
-                    <a href = '#home'>Home</a>
-                    <a href = '#qualifyForm'>Do I Qualify?</a>
-                    <a href = '#login'>Login</a>
+                    <a className = 'headerLinks'href = '#home'>Home</a>
+                    <a className = 'headerLinks'href = '#qualifyForm'>Do I Qualify?</a>
+                    <a className = 'headerLinks'href = '#login'>Login</a>
                 </nav>
 			</header>
 		)

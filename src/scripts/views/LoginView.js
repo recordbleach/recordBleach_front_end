@@ -32,6 +32,15 @@ const Login = React.createClass({
         }
     },
 
+    _handleLogin: function(evt) {
+        evt.preventDefault()
+
+        ACTIONS._loginUser({
+            email: evt.target.loginEmail.value,
+            password: evt.target.loginPassword.value
+        })
+    },
+
     render: function() {
         return (
             <div className = 'signinForm'>
@@ -45,8 +54,8 @@ const Login = React.createClass({
 
                 <form className = 'signin' id = 'login' onSubmit = {this._handleLogin}>
                     <h3>Sign In Existing User</h3>
-                    <input type = 'text' name = 'registerEmail' placeholder = 'email' />
-                    <input type = 'password' name = 'registerPassword' placeholder = 'password' />
+                    <input type = 'text' name = 'loginEmail' placeholder = 'email' />
+                    <input type = 'password' name = 'loginPassword' placeholder = 'password' />
                     <button type = 'submit'>Sign In</button>
                 </form>
             </div>
