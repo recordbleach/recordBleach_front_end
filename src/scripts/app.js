@@ -13,6 +13,7 @@ const app = function() {
 
     const AppRouter = Backbone.Router.extend({
         routes: {
+            'home': '_handleHomeView',
             'qualifyForm': '_handleQualifyForm',
             'login': '_handleLogin',
             'dataInput': '_handleDataInput',
@@ -20,6 +21,10 @@ const app = function() {
             'glossary': '_handleGlossary',
             'disclaimer': '_handleDisclaimer',
             '*default': '_handleDefault'
+        },
+
+        _handleHomeView: function() {
+            ReactDOM.render(<HomeView />, document.querySelector('.container'))
         },
 
         _handleQualifyForm: function() {

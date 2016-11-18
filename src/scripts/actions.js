@@ -42,7 +42,7 @@ const ACTIONS = {
             method: 'GET',
             dataType: 'application/pdf',
             //right now this is getting a specific petition as a test, will figure out the rest later
-            url: 'https://tx-recordbleach-api.herokuapp.com/api/petitions/35.pdf'
+            url: 'https://tx-recordbleach-api.herokuapp.com/api/petitions/' + ID
         }).then(
             (response) => {
                 console.log(response)
