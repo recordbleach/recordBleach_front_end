@@ -54,7 +54,7 @@ const app = function() {
         },
 
         _handleDefault: function() {
-            location.hash = 'qualifyForm'
+            location.hash = 'home'
         },
 
         initialize: function() {
