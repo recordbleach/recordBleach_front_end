@@ -7,6 +7,7 @@ import DataInputView from './views/DataView'
 import PrivacyPolicyView from './views/PrivacyPolicyView'
 import GlossaryView from './views/GlossaryView'
 import DisclaimerView from './views/DisclaimerView'
+import HomeView from './views/homeView'
 
 
 const app = function() {
