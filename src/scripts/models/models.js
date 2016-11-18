@@ -11,9 +11,8 @@ UserAuthModel.register = function(newUserData) {
         throw new Error("User.register needs to be of type object with email & password properties")
     }
     else {
-        console.log('register success')
-    }
 
+    }
     return $.ajax({
         method: 'POST',
         type: 'json',
@@ -22,18 +21,17 @@ UserAuthModel.register = function(newUserData) {
     })
 }
 
-UserAuthModel.login = function(newUserData) {
-    if(typeof newUserData !== 'object') {
+UserAuthModel.login = function(userData) {
+    if(typeof userData !== 'object') {
         throw new Error("User.register needs to be of type object with email & password properties")
     }
     else {
-        console.log('getToken success')
-        console.log(newUserData)
+        console.log(userData)
     }
     return $.ajax({
         method: 'POST',
         url: 'https://tx-recordbleach-api.herokuapp.com/oauth/token',
-        data: $.extend(newUserData, {
+        data: $.extend(userData, {
             grant_type: 'password'
         })
     }).then((tokenData) => {
