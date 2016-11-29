@@ -64,10 +64,6 @@ const QualifyForm = React.createClass({
                         <input type = 'radio' name = 'overturned' value = 'yes' />Yes <br />
                         <input type = 'radio' name = 'overturned' value ='no' />No <br />
                 </div>
-
-                <button>Continue to Login</button>
-                <button onClick = {this._handleGuestReturn}>Returning guest sign in here</button>
-
             </div>
         )
     }

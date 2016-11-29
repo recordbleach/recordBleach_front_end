@@ -47,21 +47,20 @@ const ACTIONS = {
         })
     },
 
-    _getPetitions: function() {
-
-        return $.ajax({
-            method: 'GET',
-            dataType: 'application/pdf',
-            //right now this is getting a specific petition as a test, will figure out the rest later
-            url: 'https://tx-recordbleach-api.herokuapp.com/api/petitions/' + ID
-        }).then(
-            (response) => {
-                console.log(response)
-            },
-            (error) => {
-                console.log(error)
-        })
-    }
+    // _getPetitions: function() {
+    //     return $.ajax({
+    //         method: 'GET',
+    //         dataType: 'application/pdf',
+    //         //right now this is getting a specific petition as a test, will figure out the rest later
+    //         url: 'https://tx-recordbleach-api.herokuapp.com/api/petitions/'
+    //     }).then(
+    //         (response) => {
+    //             console.log(response)
+    //         },
+    //         (error) => {
+    //             console.log(error)
+    //     })
+    // }
 }
 
 export default ACTIONS

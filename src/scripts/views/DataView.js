@@ -147,6 +147,10 @@ const Petition = React.createClass({
 
     },
 
+    _handleLogout: function() {
+
+    },
+
     render: function() {
         var toggleProfileClass = {
             className: this.state.setProfileClass
@@ -285,8 +289,9 @@ const Petition = React.createClass({
                     </div>
 
                     <p>ONCE YOU HIT SUBMIT YOUR FORMS WILL BE GENERATED AND EMAILED TO THE ADDRESS YOU PROVIDED. ALL INFORMATION WILL BE REMOVED FROM THIS SITE</p>
-                    <button type = 'submit'>Submit</button>
+                    <button type = 'submit' value = 'submit' name = 'submit'>Submit</button>
                 </form>
+                <button onClick = {this._handleLogout}>Logout</button>
             </div>
         )
     }
