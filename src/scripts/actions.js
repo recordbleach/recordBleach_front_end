@@ -48,8 +48,7 @@ const ACTIONS = {
     },
 
     _logoutUser: function() {
-        //need to get the current user
-        //
+
     }
 }
 

@@ -18,6 +18,9 @@ UserAuthModel.register = function(newUserData) {
         type: 'json',
         url: 'https://tx-recordbleach-api.herokuapp.com/api/registrations',
         data: newUserData
+    }).then((newUser) => {
+        console.log(newUser)
+        localStorage['currentUser'] = newUser.user.id
     })
 }
 
