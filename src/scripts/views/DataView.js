@@ -100,54 +100,50 @@ const Petition = React.createClass({
 
     _handlePetitionSubmit: function(evt) {
         evt.preventDefault()
-
+        console.log(document.getElementsByClassName('sex'))
         ACTIONS._submitPetition({
-            legal_name: evt.target.legalName.value,
-            dob: this._formatDate(evt.target.dob.value),
-            ssn: evt.target.ssn.value,
-            dl: evt.target.dl.value,
-            address: evt.target.currentAddress.value,
-            city: evt.target.currentCity.value,
-            state: evt.target.currentState.value,
-            county: evt.target.currentCounty.value,
-            zip: evt.target.currentZip.value,
-            sex: evt.target.sex.value,
-            race: evt.target.race.value,
-            offense_date:this._formatDate(evt.target.offenseDate.value),
-            offense_county: evt.target.arrestCounty.value,
-            arresting_agency: evt.target.arrestingAgency.value,
-            arrest_date:this._formatDate(evt.target.arrestDate.value),
-            a_address: evt.target.arrestAddress.value,
-            a_city: evt.target.arrestCity.value,
-            a_state: evt.target.arrestState.value,
-            a_county: evt.target.arrestCounty.value,
-            charged: this._createBool(evt.target.charged.value),
-            charge_date:this._formatDate(evt.target.chargeDate.value),
-            charged_offenses: evt.target.offenses.value,
-            charge_cause_number: evt.target.cause.value,
-            court_name: evt.target.courtName.value,
-            court_city: evt.target.courtCity.value,
-            court_county: evt.target.courtCounty.value,
-            county_court_at_law: this._courtBool(evt.target.court.value).county,
-            municipal_court: this._courtBool(evt.target.court.value).municipal,
-            district_court: this._courtBool(evt.target.court.value).district,
-            acquittal: this._createBool(evt.target.acquittal.value),
-            acquittal_date:this._formatDate(evt.target.acquittalDate.value),
-            dismissal: this._createBool(evt.target.dismiss.value),
-            dismissal_date:this._formatDate(evt.target.dismissDate.value),
-            convicted: this._createBool(evt.target.convicted.value),
-            conviction_date:this._formatDate(evt.target.convictionDate.value),
-            pardon:this._createBool(evt.target.pardon.value),
-            pardon_date:this._formatDate(evt.target.pardonDate.value),
-            overturned:this._createBool(evt.target.overturn.value),
-            overturned_date:this._formatDate(evt.target.overturnDate.value),
-            probation:this._createBool(evt.target.probation.value),
-            deferred_adjudication:this._createBool(evt.target.adjudication.value)
+            // legal_name: document.getElementsByClassName('legalName')[0].value,
+            // dob: this._formatDate(document.getElementsByClassName('dob')[0].value),
+            // ssn: document.getElementsByClassName('ssn')[0].value,
+            // dl: document.getElementsByClassName('dl')[0].value,
+            // address: document.getElementsByClassName('currentAddress')[0].value,
+            // city: document.getElementsByClassName('currentCity')[0].value,
+            // state: document.getElementsByClassName('currentState')[0].value,
+            // county: document.getElementsByClassName('currentCounty')[0].value,
+            // zip: document.getElementsByClassName('currentZip')[0].value,
+            // // sex: evt.target.sex.value,
+            // // race: evt.target.race.value,
+            // offense_date:this._formatDate(document.getElementsByClassName('offenseDate')[0].value),
+            // // offense_county: evt.target.arrestCounty.value,
+            // arresting_agency: document.getElementsByClassName('arrestingAgency')[0].value,
+            // arrest_date: this._formatDate(document.getElementsByClassName('arrestDate')[0].value),
+            // a_address: document.getElementsByClassName('TOAAddress')[0].value,
+            // a_city: document.getElementsByClassName('TOACity')[0].value,
+            // a_state: document.getElementsByClassName('TOAState')[0].value,
+            // a_county: document.getElementsByClassName('TOACounty')[0].value,
+            // // charged: this._createBool(evt.target.charged.value),
+            // charge_date:this._formatDate(document.getElementsByClassName('chargeDate')[0].value),
+            // charged_offenses: document.getElementsByClassName('offenses')[0].value,
+            // charge_cause_number: document.getElementsByClassName('cause')[0].value,
+            // court_name: document.getElementsByClassName('courtName')[0].value,
+            // court_city: document.getElementsByClassName('courtCity')[0].value,
+            // court_county: document.getElementsByClassName('courtCounty')[0].value,
+            // // county_court_at_law: this._courtBool(evt.target.court.value).county,
+            // // municipal_court: this._courtBool(evt.target.court.value).municipal,
+            // // district_court: this._courtBool(evt.target.court.value).district,
+            // // acquittal: this._createBool(evt.target.acquittal.value),
+            // acquittal_date:this._formatDate(document.getElementsByClassName('acquittalDate')[0].value),
+            // // dismissal: this._createBool(evt.target.dismiss.value),
+            // dismissal_date:this._formatDate(document.getElementsByClassName('dismissDate')[0].value),
+            // // convicted: this._createBool(evt.target.convicted.value),
+            // conviction_date:this._formatDate(document.getElementsByClassName('convictionDate')[0].value),
+            // // pardon:this._createBool(evt.target.pardon.value),
+            // pardon_date:this._formatDate(document.getElementsByClassName('pardonDate')[0].value),
+            // // overturned:this._createBool(evt.target.overturn.value),
+            // overturned_date:this._formatDate(document.getElementsByClassName('overturnDate')[0].value),
+            // // probation:this._createBool(evt.target.probation.value),
+            // // deferred_adjudication:this._createBool(evt.target.adjudication.value)
         })
-
-    },
-
-    _handleLogout: function() {
 
     },
 
@@ -170,33 +166,33 @@ const Petition = React.createClass({
 
         return(
             <div className = 'petition'>
-                <form onSubmit = {this._handlePetitionSubmit}>
+                <form>
                     {/* PERSONAL PROFILE*/}
                     <h3 onClick={this._toggleProfileButton}>{this.state.profileButtonSymbol} Personal Profile</h3>
                     <div id = 'profile' className={toggleProfileClass.className}>
-                        <p>Full legal name:</p><input type ='text' name = 'legalName'/>
-                        <p>Date of birth:</p><input type = 'date' name = 'dob'/>
-                        <p>Social Security Number (include dashes):</p><input type = 'password' name = 'ssn' />
-                        <p>Driver's License (leave blank if not applicable):</p><input type = 'text' name = 'dl' />
+                        <p>Full legal name:</p><input type ='text' className = 'legalName'/>
+                        <p>Date of birth:</p><input type = 'date' className = 'dob'/>
+                        <p>Social Security Number (include dashes):</p><input type = 'password' className = 'ssn' />
+                        <p>Driver's License (leave blank if not applicable):</p><input type = 'text' className = 'dl' />
                         <p>Race:</p>
-                            <input type = 'radio' name = 'race' value = 'Hispanic or Latino' />Hispanic or Latino <br />
-                            <input type = 'radio' name = 'race' value = 'American Indian or Alaska Native' />American Indian or Alaska Native <br />
-                            <input type = 'radio' name = 'race' value = 'Asian' />Asian <br />
-                            <input type = 'radio' name = 'race' value = 'Black or African American' />Black or African American <br />
-                            <input type = 'radio' name = 'race' value = 'Native Hawaiian or Other Pacific Islander' />Native Hawaiian or Other Pacific Islander <br />
-                            <input type = 'radio' name = 'race' value = 'White' />White <br />
+                            <input type = 'radio' className = 'race' value = 'Hispanic or Latino' />Hispanic or Latino <br />
+                            <input type = 'radio' className = 'race' value = 'American Indian or Alaska Native' />American Indian or Alaska Native <br />
+                            <input type = 'radio' className = 'race' value = 'Asian' />Asian <br />
+                            <input type = 'radio' className = 'race' value = 'Black or African American' />Black or African American <br />
+                            <input type = 'radio' className = 'race' value = 'Native Hawaiian or Other Pacific Islander' />Native Hawaiian or Other Pacific Islander <br />
+                            <input type = 'radio' className = 'race' value = 'White' />White <br />
 
 
                         <p>Sex:</p>
-                            <input type = 'radio' value = 'male' name = 'sex'/>Male<br/>
-                            <input type = 'radio' value = 'female' name = 'sex'/>Female
+                            <input type = 'radio' value = 'male' className = 'sex' name = 'sex'/>Male<br/>
+                            <input type = 'radio' value = 'female' className = 'sex' name = 'sex'/>Female
 
                         <div className = 'address'>Current address:
-                            <input type = 'text' placeholder = 'address' name = 'currentAddress'/>
-                            <input type = 'text' placeholder = 'city' name = 'currentCity'/>
-                            <input type = 'text' placeholder = 'state' name = 'currentState'/>
-                            <input type = 'text' placeholder = 'zipcode' name = 'currentZip'/>
-                            <input type = 'text' placeholder = 'county' name = 'currentCounty'/>
+                            <input type = 'text' placeholder = 'address' className = 'currentAddress'/>
+                            <input type = 'text' placeholder = 'city' className = 'currentCity'/>
+                            <input type = 'text' placeholder = 'state' className = 'currentState'/>
+                            <input type = 'text' placeholder = 'zipcode' className = 'currentZip'/>
+                            <input type = 'text' placeholder = 'county' className = 'currentCounty'/>
                         </div>
                     </div>
                     {/* ARREST PROFILE*/}
@@ -204,41 +200,41 @@ const Petition = React.createClass({
                     <div id = 'arrest' className={toggleArrestClass.className}>
 
                         <div className = 'address'>Address at time of the arrest:
-                            <input type = 'text' placeholder = 'address' name = 'arrestAddress'/>
-                            <input type = 'text' placeholder = 'city' name = 'arrestCity'/>
-                            <input type = 'text' placeholder = 'state' name = 'arrestState'/>
-                            <input type = 'text' placeholder = 'zipcode' name = 'arrestZip'/>
-                            <input type = 'text' placeholder = 'county' name = 'arrestCounty'/>
+                            <input type = 'text' placeholder = 'address' className = 'TOAAddress'/>
+                            <input type = 'text' placeholder = 'city' className = 'TOACity'/>
+                            <input type = 'text' placeholder = 'state' className = 'TOAState'/>
+                            <input type = 'text' placeholder = 'zipcode' className = 'TOAZip'/>
+                            <input type = 'text' placeholder = 'county' className = 'TOACounty'/>
                         </div>
-                        <p>Date of the offense (may be different than the date of the arrest):</p><input type = 'date' name = 'offenseDate'/>
-                        <p>Date of the arrest:</p><input type = 'date' name = 'arrestDate'/>
+                        <p>Date of the offense (may be different than the date of the arrest):</p><input type = 'date' className = 'offenseDate'/>
+                        <p>Date of the arrest:</p><input type = 'date' className = 'arrestDate'/>
                         <p>Location of the arrest:
-                            <input type = 'text' placeholder = 'city'/><br/>
-                            <input type = 'text' placeholder = 'county' name = 'arrestCounty'/>
+                            <input type = 'text' placeholder = 'city' className = 'arrestCity'/><br/>
+                            <input type = 'text' placeholder = 'county' className = 'arrestCounty'/>
                         </p>
-                        <p>Agency that arrested you:</p><input type = 'text' name = 'arrestingAgency'/>
-                        <p>Arrest Offense (exactly as it is written on your record):</p><input type = 'text' name = 'arrestOffense' />
+                        <p>Agency that arrested you:</p><input type = 'text' className = 'arrestingAgency'/>
+                        <p>Arrest Offense (exactly as it is written on your record):</p><input type = 'text' className = 'arrestOffense' />
                     </div>
 
                     {/* CHARGE PROFILE*/}
                     <h3 onClick={this._toggleChargeButton}>{this.state.chargeButtonSymbol}Charge</h3>
                     <div id = 'charge' className={toggleChargeClass.className}>
                         <p>Charged:</p>
-                            <input type = 'radio' name = 'charged' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' name = 'charged' value = 'no'/>No
-                        <p>Date of charge:</p><input type = 'date' name = 'chargeDate'/>
+                            <input type = 'radio' className = 'charged' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' className = 'charged' value = 'no'/>No
+                        <p>Date of charge:</p><input type = 'date' className = 'chargeDate'/>
                         <p>List all the offenses:</p>
-                            <textarea placeholder = 'Offenses' name = 'offenses'></textarea>
+                            <textarea placeholder = 'Offenses' className = 'offenses'></textarea>
                         <p>Court where charges were filed:</p>
-                            County: <input type = 'text' name = 'courtCounty'/>
-                            City: <input type = 'text' name = 'courtCity'/>
-                            Name: <input type = 'text' name = 'courtName'/>
+                            County: <input type = 'text' className = 'courtCounty'/>
+                            City: <input type = 'text' className = 'courtCity'/>
+                            Name: <input type = 'text' className = 'courtName'/>
                         <p>Court Type:</p>
-                            <input type = 'radio' name = 'court' value = 'county'/>County<br/>
-                            <input type = 'radio' name = 'court' value = 'municipal'/>Municipal<br/>
-                            <input type = 'radio' name = 'court' value = 'mistrict'/>District
+                            <input type = 'radio' className = 'court' value = 'county'/>County<br/>
+                            <input type = 'radio' className = 'court' value = 'municipal'/>Municipal<br/>
+                            <input type = 'radio' className = 'court' value = 'mistrict'/>District
 
-                        <p>Cause # (exactly as written on criminal history):</p><input type = 'text' name = 'cause' />
+                        <p>Cause # (exactly as written on criminal history):</p><input type = 'text' className = 'cause' />
 
                     </div>
 
@@ -246,52 +242,52 @@ const Petition = React.createClass({
                     <h3 onClick={this._toggleOverturnButton}>{this.state.overturnButtonSymbol}Disposition</h3>
                     <div id = 'overturn' className={toggleOverturnClass.className}>
                         <p>Convicted:</p>
-                            <input type = 'radio' name = 'convicted' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' name = 'convicted' value = 'no'/>No<br/>
-                            <input type = 'date' name = 'convictionDate' />
+                            <input type = 'radio' className = 'convicted' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' className = 'convicted' value = 'no'/>No<br/>
+                            <input type = 'date' className = 'convictionDate' />
 
                         <p>Dismissed:</p>
-                            <input type = 'radio' name = 'dismiss' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' name = 'dismiss' value = 'no'/>No<br/>
-                            <input type = 'date' name = 'dismissDate' />
+                            <input type = 'radio' className = 'dismiss' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' className = 'dismiss' value = 'no'/>No<br/>
+                            <input type = 'date' className = 'dismissDate' />
 
                         <p>Pardoned:</p>
-                            <input type = 'radio' name = 'pardon' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' name = 'pardon' value = 'no'/>No<br/>
-                            <input type = 'date' name = 'pardonDate' />
+                            <input type = 'radio' className = 'pardon' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' className = 'pardon' value = 'no'/>No<br/>
+                            <input type = 'date' className = 'pardonDate' />
 
                         <p>Overturned:</p>
-                            <input type = 'radio' name = 'overturn' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' name = 'overturn' value = 'no'/>No<br/>
-                            <input type = 'date' name = 'overturnDate' />
+                            <input type = 'radio' className = 'overturn' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' className = 'overturn' value = 'no'/>No<br/>
+                            <input type = 'date' className = 'overturnDate' />
 
                         <p>Acquitted:</p>
-                            <input type = 'radio' name = 'acquittal' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' name = 'acquittal' value = 'no'/>No<br/>
-                            <input type = 'date' name = 'acquittalDate' />
+                            <input type = 'radio' className = 'acquittal' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' className = 'acquittal' value = 'no'/>No<br/>
+                            <input type = 'date' className = 'acquittalDate' />
 
                         <p>Assigned Probation:</p>
-                            <input type = 'radio' name = 'probation' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' name = 'probation' value = 'no'/>No
+                            <input type = 'radio' className = 'probation' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' className = 'probation' value = 'no'/>No
 
                         <p>Assigned Deferred Adjudication:</p>
-                            <input type = 'radio' name = 'adjudication' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' name = 'adjudication' value = 'no'/>No
+                            <input type = 'radio' className = 'adjudication' value = 'yes'/>Yes<br/>
+                            <input type = 'radio' className = 'adjudication' value = 'no'/>No
                     </div>
                     {/* AGENCY PROFILE*/}
                     <h3 onClick={this._toggleAgencyButton}>{this.state.agencyButtonSymbol}Agency</h3>
                     <div id = 'agency' className={toggleAgencyClass.className}>Address of arresting agency:
-                        <input type = 'text' placeholder = 'address'/>
-                        <input type = 'text' placeholder = 'city' />
-                        <input type = 'text' placeholder = 'state' />
-                        <input type = 'text' placeholder = 'zipcode'/>
-                        <input type = 'text' placeholder = 'county' />
+                        <input type = 'text' placeholder = 'address' className = 'agency'/>
+                        <input type = 'text' placeholder = 'city' className = 'agency'/>
+                        <input type = 'text' placeholder = 'state' className = 'agency'/>
+                        <input type = 'text' placeholder = 'zipcode' className = 'agency'/>
+                        <input type = 'text' placeholder = 'county' className = 'agency'/>
                     </div>
 
                     <p>ONCE YOU HIT SUBMIT YOUR FORMS WILL BE GENERATED AND EMAILED TO THE ADDRESS YOU PROVIDED. ALL INFORMATION WILL BE REMOVED FROM THIS SITE</p>
-                    <button type = 'submit' value = 'submit' name = 'submit'>Submit</button>
+                    <button type= 'submit' onClick = {this._handlePetitionSubmit}>Submit</button>
+                    <button type= 'submit' >Save and Logout</button>
                 </form>
-                <button onClick = {this._handleLogout}>Logout</button>
             </div>
         )
     }
