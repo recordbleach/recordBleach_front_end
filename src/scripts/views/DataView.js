@@ -89,10 +89,17 @@ const Petition = React.createClass({
         }
         for(var i = 0; i < courtInputArray.length; i++) {
             var courtInputObj = courtInputArray[i]
-            for(var prop in courtObj) {
-                console.log(prop)
+            if(courtInputObj.checked) {
+                var courtTrueValue = courtInputObj.value
             }
         }
+        for(var prop in courtObj) {
+            if(prop === courtTrueValue) {
+                courtObj[prop] = true
+            }
+        }
+        console.log(courtObj)
+        return courtObj
     },
 
     _handlePetitionSubmit: function(evt) {
@@ -125,9 +132,9 @@ const Petition = React.createClass({
             court_name: document.getElementsByClassName('courtName')[0].value,
             court_city: document.getElementsByClassName('courtCity')[0].value,
             court_county: document.getElementsByClassName('courtCounty')[0].value,
-            county_court_at_law: this._courtBool(document.getElementsByClassName('court')),
-            // municipal_court: this._courtBool(evt.target.court.value).municipal,
-            // district_court: this._courtBool(evt.target.court.value).district,
+            county_court_at_law: this._courtBool(document.getElementsByClassName('court')).county,
+            municipal_court: this._courtBool(document.getElementsByClassName('court')).municipal,
+            district_court: this._courtBool(document.getElementsByClassName('court')).district,
             acquittal: this._handleRadioInput(document.getElementsByClassName('acquittal')),
             acquittal_date:this._formatDate(document.getElementsByClassName('acquittalDate')[0].value),
             dismissal: this._handleRadioInput(document.getElementsByClassName('dismiss')),
