@@ -3,6 +3,7 @@ import Header from './header'
 import Footer from './footer'
 import ACTIONS from '../actions'
 
+
 const DataInputView = React.createClass({
     render: function() {
         return(
@@ -81,7 +82,7 @@ const Petition = React.createClass({
     },
 
     _courtBool: function(courtInputArray) {
-        console.log(courtInputArray)
+
         var courtObj = {
             county: false,
             municipal: false,
@@ -98,7 +99,7 @@ const Petition = React.createClass({
                 courtObj[prop] = true
             }
         }
-        console.log(courtObj)
+
         return courtObj
     },
 
@@ -146,7 +147,8 @@ const Petition = React.createClass({
             overturned:this._handleRadioInput(document.getElementsByClassName('overturn')),
             overturned_date:this._formatDate(document.getElementsByClassName('overturnDate')[0].value),
             probation:this._handleRadioInput(document.getElementsByClassName('overturn')),
-            deferred_adjudication:this._handleRadioInput(document.getElementsByClassName('adjudication'))
+            deferred_adjudication:this._handleRadioInput(document.getElementsByClassName('adjudication')),
+            user_id: parseInt(localStorage.currentUser)
         })
 
     },
