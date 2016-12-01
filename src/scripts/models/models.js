@@ -10,9 +10,7 @@ UserAuthModel.register = function(newUserData) {
     if(typeof newUserData !== 'object') {
         throw new Error("User.register needs to be of type object with email & password properties")
     }
-    else {
 
-    }
     return $.ajax({
         method: 'POST',
         type: 'json',
@@ -36,7 +34,6 @@ UserAuthModel.login = function(userData) {
             grant_type: 'password'
         })
     }).then((tokenData) => {
-
         localStorage['token'] = tokenData.access_token
         location.hash = 'dataInput'
     })
