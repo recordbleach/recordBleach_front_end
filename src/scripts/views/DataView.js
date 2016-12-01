@@ -63,6 +63,16 @@ const Petition = React.createClass({
         })
     },
 
+    _handleRadioInput: function(inputArray) {
+
+        for(var i = 0; i < inputArray.length; i++) {
+            var genderObj = inputArray[i]
+            if(genderObj.checked) {
+                return genderObj.value
+            }
+        }
+    },
+
     _formatDate: function(dateString) {
         var splitDateArray = dateString.split('-')
         var formattedDateString = splitDateArray.join('')
@@ -70,79 +80,66 @@ const Petition = React.createClass({
         return formattedDateNumber
     },
 
-    _createBool: function(answerString) {
-        if(answerString === 'yes') {
-            return true
-        }
-        else {
-            return false
-        }
-    },
-
-    _courtBool: function(courtInput) {
+    _courtBool: function(courtInputArray) {
+        console.log(courtInputArray)
         var courtObj = {
             county: false,
             municipal: false,
             district: false
         }
-
-        if(courtInput === 'county') {
-            courtObj.county = true
+        for(var i = 0; i < courtInputArray.length; i++) {
+            var courtInputObj = courtInputArray[i]
+            for(var prop in courtObj) {
+                console.log(prop)
+            }
         }
-        else if(courtInput === 'municipal') {
-            courtObj.municipal = true
-        }
-        else {
-            courtObj.district = true
-        }
-        return courtObj
     },
 
     _handlePetitionSubmit: function(evt) {
         evt.preventDefault()
-        console.log(document.getElementsByClassName('sex'))
+        console.log()
         ACTIONS._submitPetition({
-            // legal_name: document.getElementsByClassName('legalName')[0].value,
-            // dob: this._formatDate(document.getElementsByClassName('dob')[0].value),
-            // ssn: document.getElementsByClassName('ssn')[0].value,
-            // dl: document.getElementsByClassName('dl')[0].value,
-            // address: document.getElementsByClassName('currentAddress')[0].value,
-            // city: document.getElementsByClassName('currentCity')[0].value,
-            // state: document.getElementsByClassName('currentState')[0].value,
-            // county: document.getElementsByClassName('currentCounty')[0].value,
-            // zip: document.getElementsByClassName('currentZip')[0].value,
-            // // sex: evt.target.sex.value,
-            // // race: evt.target.race.value,
-            // offense_date:this._formatDate(document.getElementsByClassName('offenseDate')[0].value),
-            // // offense_county: evt.target.arrestCounty.value,
-            // arresting_agency: document.getElementsByClassName('arrestingAgency')[0].value,
-            // arrest_date: this._formatDate(document.getElementsByClassName('arrestDate')[0].value),
-            // a_address: document.getElementsByClassName('TOAAddress')[0].value,
-            // a_city: document.getElementsByClassName('TOACity')[0].value,
-            // a_state: document.getElementsByClassName('TOAState')[0].value,
-            // a_county: document.getElementsByClassName('TOACounty')[0].value,
-            // // charged: this._createBool(evt.target.charged.value),
-            // charge_date:this._formatDate(document.getElementsByClassName('chargeDate')[0].value),
-            // charged_offenses: document.getElementsByClassName('offenses')[0].value,
-            // charge_cause_number: document.getElementsByClassName('cause')[0].value,
-            // court_name: document.getElementsByClassName('courtName')[0].value,
-            // court_city: document.getElementsByClassName('courtCity')[0].value,
-            // court_county: document.getElementsByClassName('courtCounty')[0].value,
-            // // county_court_at_law: this._courtBool(evt.target.court.value).county,
-            // // municipal_court: this._courtBool(evt.target.court.value).municipal,
-            // // district_court: this._courtBool(evt.target.court.value).district,
-            // // acquittal: this._createBool(evt.target.acquittal.value),
-            // acquittal_date:this._formatDate(document.getElementsByClassName('acquittalDate')[0].value),
-            // // dismissal: this._createBool(evt.target.dismiss.value),
-            // dismissal_date:this._formatDate(document.getElementsByClassName('dismissDate')[0].value),
-            // // convicted: this._createBool(evt.target.convicted.value),
-            // conviction_date:this._formatDate(document.getElementsByClassName('convictionDate')[0].value),
-            // // pardon:this._createBool(evt.target.pardon.value),
-            // pardon_date:this._formatDate(document.getElementsByClassName('pardonDate')[0].value),
-            // // overturned:this._createBool(evt.target.overturn.value),
-            // overturned_date:this._formatDate(document.getElementsByClassName('overturnDate')[0].value),
-            // // probation:this._createBool(evt.target.probation.value),
-            // // deferred_adjudication:this._createBool(evt.target.adjudication.value)
+            legal_name: document.getElementsByClassName('legalName')[0].value,
+            dob: this._formatDate(document.getElementsByClassName('dob')[0].value),
+            ssn: document.getElementsByClassName('ssn')[0].value,
+            dl: document.getElementsByClassName('dl')[0].value,
+            address: document.getElementsByClassName('currentAddress')[0].value,
+            city: document.getElementsByClassName('currentCity')[0].value,
+            state: document.getElementsByClassName('currentState')[0].value,
+            county: document.getElementsByClassName('currentCounty')[0].value,
+            zip: document.getElementsByClassName('currentZip')[0].value,
+            sex: this._handleRadioInput(document.getElementsByClassName('gender')),
+            race: this._handleRadioInput(document.getElementsByClassName('race')),
+            offense_date:this._formatDate(document.getElementsByClassName('offenseDate')[0].value),
+            // offense_county: evt.target.arrestCounty.value,
+            arresting_agency: document.getElementsByClassName('arrestingAgency')[0].value,
+            arrest_date: this._formatDate(document.getElementsByClassName('arrestDate')[0].value),
+            a_address: document.getElementsByClassName('TOAAddress')[0].value,
+            a_city: document.getElementsByClassName('TOACity')[0].value,
+            a_state: document.getElementsByClassName('TOAState')[0].value,
+            a_county: document.getElementsByClassName('TOACounty')[0].value,
+            charged: this._handleRadioInput(document.getElementsByClassName('charged')),
+            charge_date:this._formatDate(document.getElementsByClassName('chargeDate')[0].value),
+            charged_offenses: document.getElementsByClassName('offenses')[0].value,
+            charge_cause_number: document.getElementsByClassName('cause')[0].value,
+            court_name: document.getElementsByClassName('courtName')[0].value,
+            court_city: document.getElementsByClassName('courtCity')[0].value,
+            court_county: document.getElementsByClassName('courtCounty')[0].value,
+            county_court_at_law: this._courtBool(document.getElementsByClassName('court')),
+            // municipal_court: this._courtBool(evt.target.court.value).municipal,
+            // district_court: this._courtBool(evt.target.court.value).district,
+            acquittal: this._handleRadioInput(document.getElementsByClassName('acquittal')),
+            acquittal_date:this._formatDate(document.getElementsByClassName('acquittalDate')[0].value),
+            dismissal: this._handleRadioInput(document.getElementsByClassName('dismiss')),
+            dismissal_date:this._formatDate(document.getElementsByClassName('dismissDate')[0].value),
+            convicted: this._handleRadioInput(document.getElementsByClassName('convicted')),
+            conviction_date:this._formatDate(document.getElementsByClassName('convictionDate')[0].value),
+            pardon:this._handleRadioInput(document.getElementsByClassName('pardon')),
+            pardon_date:this._formatDate(document.getElementsByClassName('pardonDate')[0].value),
+            overturned:this._handleRadioInput(document.getElementsByClassName('overturn')),
+            overturned_date:this._formatDate(document.getElementsByClassName('overturnDate')[0].value),
+            probation:this._handleRadioInput(document.getElementsByClassName('overturn')),
+            deferred_adjudication:this._handleRadioInput(document.getElementsByClassName('adjudication'))
         })
 
     },
@@ -183,9 +180,9 @@ const Petition = React.createClass({
                             <input type = 'radio' className = 'race' value = 'White' />White <br />
 
 
-                        <p>Sex:</p>
-                            <input type = 'radio' value = 'male' className = 'sex' name = 'sex'/>Male<br/>
-                            <input type = 'radio' value = 'female' className = 'sex' name = 'sex'/>Female
+                        <p>Gender:</p>
+                            <input type = 'radio' value = 'male' className = 'gender' name = 'gender'/>Male<br/>
+                            <input type = 'radio' value = 'female' className = 'gender' name = 'gender'/>Female
 
                         <div className = 'address'>Current address:
                             <input type = 'text' placeholder = 'address' className = 'currentAddress'/>
@@ -232,7 +229,7 @@ const Petition = React.createClass({
                         <p>Court Type:</p>
                             <input type = 'radio' className = 'court' value = 'county'/>County<br/>
                             <input type = 'radio' className = 'court' value = 'municipal'/>Municipal<br/>
-                            <input type = 'radio' className = 'court' value = 'mistrict'/>District
+                            <input type = 'radio' className = 'court' value = 'district'/>District
 
                         <p>Cause # (exactly as written on criminal history):</p><input type = 'text' className = 'cause' />
 

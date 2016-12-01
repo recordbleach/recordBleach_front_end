@@ -39,8 +39,7 @@ const ACTIONS = {
 
         petition.save([], {dataType: 'html'}).then(
             (response) => {
-                console.log(response)
-                alert('Thank you for your submission')
+                console.log('Success! Thank you for your submission')
             },
             (error) => {
                 console.log(error)
