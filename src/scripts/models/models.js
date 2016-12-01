@@ -36,7 +36,7 @@ UserAuthModel.login = function(userData) {
             grant_type: 'password'
         })
     }).then((tokenData) => {
-        console.log(tokenData)
+
         localStorage['token'] = tokenData.access_token
         location.hash = 'dataInput'
     })
