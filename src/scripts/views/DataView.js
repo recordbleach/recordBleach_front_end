@@ -104,7 +104,7 @@ const Petition = React.createClass({
 
     _handlePetitionSubmit: function(evt) {
         evt.preventDefault()
-        console.log()
+
         ACTIONS._submitPetition({
             legal_name: document.getElementsByClassName('legalName')[0].value,
             dob: this._formatDate(document.getElementsByClassName('dob')[0].value),
@@ -118,7 +118,7 @@ const Petition = React.createClass({
             sex: this._handleRadioInput(document.getElementsByClassName('gender')),
             race: this._handleRadioInput(document.getElementsByClassName('race')),
             offense_date:this._formatDate(document.getElementsByClassName('offenseDate')[0].value),
-            // offense_county: evt.target.arrestCounty.value,
+            offense_county: document.getElementsByClassName('arrestCounty')[0].value,
             arresting_agency: document.getElementsByClassName('arrestingAgency')[0].value,
             arrest_date: this._formatDate(document.getElementsByClassName('arrestDate')[0].value),
             a_address: document.getElementsByClassName('TOAAddress')[0].value,
@@ -246,37 +246,37 @@ const Petition = React.createClass({
                     <h3 onClick={this._toggleOverturnButton}>{this.state.overturnButtonSymbol}Disposition</h3>
                     <div id = 'overturn' className={toggleOverturnClass.className}>
                         <p>Convicted:</p>
-                            <input type = 'radio' className = 'convicted' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' className = 'convicted' value = 'no'/>No<br/>
+                            <input type = 'radio' className = 'convicted' value = 'yes' name = 'convicted'/>Yes<br/>
+                            <input type = 'radio' className = 'convicted' value = 'no' name = 'convicted'/>No<br/>
                             <input type = 'date' className = 'convictionDate' />
 
                         <p>Dismissed:</p>
-                            <input type = 'radio' className = 'dismiss' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' className = 'dismiss' value = 'no'/>No<br/>
+                            <input type = 'radio' className = 'dismiss' value = 'yes' name = 'dismiss'/>Yes<br/>
+                            <input type = 'radio' className = 'dismiss' value = 'no' name = 'dismiss'/>No<br/>
                             <input type = 'date' className = 'dismissDate' />
 
                         <p>Pardoned:</p>
-                            <input type = 'radio' className = 'pardon' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' className = 'pardon' value = 'no'/>No<br/>
+                            <input type = 'radio' className = 'pardon' value = 'yes' name = 'pardon'/>Yes<br/>
+                            <input type = 'radio' className = 'pardon' value = 'no' name = 'pardon'/>No<br/>
                             <input type = 'date' className = 'pardonDate' />
 
                         <p>Overturned:</p>
-                            <input type = 'radio' className = 'overturn' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' className = 'overturn' value = 'no'/>No<br/>
+                            <input type = 'radio' className = 'overturn' value = 'yes' name = 'overturn'/>Yes<br/>
+                            <input type = 'radio' className = 'overturn' value = 'no' name = 'overturn'/>No<br/>
                             <input type = 'date' className = 'overturnDate' />
 
                         <p>Acquitted:</p>
-                            <input type = 'radio' className = 'acquittal' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' className = 'acquittal' value = 'no'/>No<br/>
+                            <input type = 'radio' className = 'acquittal' value = 'yes' name = 'acquittal'/>Yes<br/>
+                            <input type = 'radio' className = 'acquittal' value = 'no' name = 'acquittal'/>No<br/>
                             <input type = 'date' className = 'acquittalDate' />
 
                         <p>Assigned Probation:</p>
-                            <input type = 'radio' className = 'probation' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' className = 'probation' value = 'no'/>No
+                            <input type = 'radio' className = 'probation' value = 'yes' name = 'probation'/>Yes<br/>
+                            <input type = 'radio' className = 'probation' value = 'no' name = 'probation'/>No
 
                         <p>Assigned Deferred Adjudication:</p>
-                            <input type = 'radio' className = 'adjudication' value = 'yes'/>Yes<br/>
-                            <input type = 'radio' className = 'adjudication' value = 'no'/>No
+                            <input type = 'radio' className = 'adjudication' value = 'yes' name = 'adjudication' />Yes<br/>
+                            <input type = 'radio' className = 'adjudication' value = 'no' name = 'adjudication'/>No
                     </div>
                     {/* AGENCY PROFILE*/}
                     <h3 onClick={this._toggleAgencyButton}>{this.state.agencyButtonSymbol}Agency</h3>

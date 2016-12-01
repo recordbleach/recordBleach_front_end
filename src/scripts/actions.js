@@ -32,6 +32,7 @@ const ACTIONS = {
     },
 
     _submitPetition: function(newPetitionObj) {
+        console.log(newPetitionObj)
         var petitionObj = {
             petition: newPetitionObj
         }
