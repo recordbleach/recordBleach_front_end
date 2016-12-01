@@ -48,7 +48,9 @@ const ACTIONS = {
     },
 
     _logoutUser: function() {
-
+        localStorage.removeItem('token')
+        localStorage.removeItem('currentUser')
+        location.hash = 'home'
     }
 }
 

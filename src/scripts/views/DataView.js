@@ -103,6 +103,11 @@ const Petition = React.createClass({
         return courtObj
     },
 
+    _handleLogout: function(evt) {
+        evt.preventDefault()
+        ACTIONS._logoutUser()
+    },
+
     _handlePetitionSubmit: function(evt) {
         evt.preventDefault()
 
@@ -150,7 +155,6 @@ const Petition = React.createClass({
             deferred_adjudication:this._handleRadioInput(document.getElementsByClassName('adjudication')),
             user_id: parseInt(localStorage.currentUser)
         })
-
     },
 
     render: function() {
@@ -292,7 +296,7 @@ const Petition = React.createClass({
 
                     <p>ONCE YOU HIT SUBMIT YOUR FORMS WILL BE GENERATED AND EMAILED TO THE ADDRESS YOU PROVIDED. ALL INFORMATION WILL BE REMOVED FROM THIS SITE</p>
                     <button type= 'submit' onClick = {this._handlePetitionSubmit}>Submit</button>
-                    <button type= 'submit' >Save and Logout</button>
+                    <button type= 'submit' onClick = {this._handleLogout} >Save and Logout</button>
                 </form>
             </div>
         )

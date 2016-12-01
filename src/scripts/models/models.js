@@ -19,7 +19,7 @@ UserAuthModel.register = function(newUserData) {
         url: 'https://tx-recordbleach-api.herokuapp.com/api/registrations',
         data: newUserData
     }).then((newUser) => {
-        console.log(newUser)
+
         localStorage['currentUser'] = newUser.user.id
     })
 }
@@ -28,9 +28,7 @@ UserAuthModel.login = function(userData) {
     if(typeof userData !== 'object') {
         throw new Error("User.register needs to be of type object with email & password properties")
     }
-    else {
-        console.log(userData)
-    }
+
     return $.ajax({
         method: 'POST',
         url: 'https://tx-recordbleach-api.herokuapp.com/oauth/token',
