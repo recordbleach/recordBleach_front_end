@@ -7,9 +7,6 @@ const UserAuthModel = Backbone.Model.extend({
 })
 
 UserAuthModel.register = function(newUserData) {
-    if(typeof newUserData !== 'object') {
-        throw new Error("User.register needs to be of type object with email & password properties")
-    }
 
     return $.ajax({
         method: 'POST',
@@ -23,9 +20,6 @@ UserAuthModel.register = function(newUserData) {
 }
 
 UserAuthModel.login = function(userData) {
-    if(typeof userData !== 'object') {
-        throw new Error("User.register needs to be of type object with email & password properties")
-    }
 
     return $.ajax({
         method: 'POST',
