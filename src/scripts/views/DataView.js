@@ -103,9 +103,8 @@ const Petition = React.createClass({
         return courtObj
     },
 
-    _handleLogout: function(evt) {
-        evt.preventDefault()
-        ACTIONS._logoutUser()
+    _handleSaveAndLogout : function(evt) {
+        this._handlePetitionSubmit(evt).then(ACTIONS._logoutUser())
     },
 
     _handlePetitionSubmit: function(evt) {
@@ -296,7 +295,7 @@ const Petition = React.createClass({
 
                     <p>ONCE YOU HIT SUBMIT YOUR FORMS WILL BE GENERATED AND EMAILED TO THE ADDRESS YOU PROVIDED. ALL INFORMATION WILL BE REMOVED FROM THIS SITE</p>
                     <button type= 'submit' onClick = {this._handlePetitionSubmit}>Submit</button>
-                    <button type= 'submit' onClick = {this._handleLogout} >Save and Logout</button>
+                    <button type= 'submit' onClick = {this._handleSaveAndLogout} >Save and Logout</button>
                 </form>
             </div>
         )
