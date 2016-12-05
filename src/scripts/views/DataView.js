@@ -106,6 +106,7 @@ const Petition = React.createClass({
 
     _handleSaveAndLogout : function(evt) {
         evt.preventDefault()
+        this._handlePetitionSubmit(evt)
 
         ACTIONS._logoutUser()
     },
