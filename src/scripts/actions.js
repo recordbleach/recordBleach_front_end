@@ -53,6 +53,12 @@ const ACTIONS = {
         })
     },
 
+    _destroyUser: function() {
+        User.destroy.then( () => {
+            this._handleLocalStorage()
+        })
+    }
+
     _handleLocalStorage: function() {
         localStorage.removeItem('token')
         localStorage.removeItem('currentUser')

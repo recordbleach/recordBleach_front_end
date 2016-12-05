@@ -104,11 +104,18 @@ const Petition = React.createClass({
         return courtObj
     },
 
-    _handleSaveAndLogout : function(evt) {
+    _handleSaveAndLogout: function(evt) {
         evt.preventDefault()
         this._handlePetitionSubmit(evt)
 
         ACTIONS._logoutUser()
+    },
+
+    _handleSubmitAndDestroy: function(evt) {
+        evt.preventDefault()
+        this._handlePetitionSubmit(evt)
+
+        ACTIONS._destroyUser()
     },
 
     _handlePetitionSubmit: function(evt) {
