@@ -48,6 +48,12 @@ const ACTIONS = {
     },
 
     _logoutUser: function() {
+        User.logout().then( () => {
+            this._handleLocalStorage()
+        })
+    },
+
+    _handleLocalStorage: function() {
         localStorage.removeItem('token')
         localStorage.removeItem('currentUser')
         location.hash = 'home'

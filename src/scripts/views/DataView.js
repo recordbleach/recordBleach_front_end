@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './header'
 import Footer from './footer'
 import ACTIONS from '../actions'
+import $ from 'jquery'
 
 
 const DataInputView = React.createClass({
@@ -104,7 +105,9 @@ const Petition = React.createClass({
     },
 
     _handleSaveAndLogout : function(evt) {
-        this._handlePetitionSubmit(evt).then(ACTIONS._logoutUser())
+        evt.preventDefault()
+
+        ACTIONS._logoutUser()
     },
 
     _handlePetitionSubmit: function(evt) {

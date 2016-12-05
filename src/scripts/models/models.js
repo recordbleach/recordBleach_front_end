@@ -31,6 +31,19 @@ UserAuthModel.login = function(userData) {
         localStorage['token'] = tokenData.access_token
         location.hash = 'dataInput'
     })
+},
+
+UserAuthModel.logout = function() {
+    return $.ajax({
+        method: 'GET',
+        url: 'https://tx-recordbleach-api.herokuapp.com/api/sign_out'
+    }).then((response) => {
+        console.log(response)
+        location.hash = 'home'
+    },
+    (error) => {
+        console.log(error)
+    })
 }
 
 export const User = UserAuthModel.extend({
