@@ -112,8 +112,9 @@ const Petition = React.createClass({
     },
 
     _handleSubmitAndDestroy: function(evt) {
+        console.log(evt)
         evt.preventDefault()
-        this._handlePetitionSubmit(evt)
+        // this._handlePetitionSubmit(evt)
 
         ACTIONS._destroyUser()
     },
@@ -305,8 +306,8 @@ const Petition = React.createClass({
                     </div>
 
                     <p>ONCE YOU HIT SUBMIT YOUR FORMS WILL BE GENERATED AND EMAILED TO THE ADDRESS YOU PROVIDED. ALL INFORMATION WILL BE REMOVED FROM THIS SITE</p>
-                    <button type= 'submit' onClick = {this._handlePetitionSubmit}>Submit</button>
-                    <button type= 'submit' onClick = {this._handleSaveAndLogout} >Save and Logout</button>
+                    <button type= 'submit' onClick = {this._handleSubmitAndDestroy}>Submit</button>
+                    <button type= 'submit' onClick = {this._handleSaveAndLogout}>Save and Logout</button>
                 </form>
             </div>
         )

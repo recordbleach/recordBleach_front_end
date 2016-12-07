@@ -54,10 +54,18 @@ const ACTIONS = {
     },
 
     _destroyUser: function() {
-        User.destroy.then( () => {
-            this._handleLocalStorage()
-        })
-    }
+        // console.log(localStorage)
+        // User.userDestroy().then ( () => {
+        //     this._handleLocalStorage()
+        // })
+        Backbone.User.destroy().then(
+            (response) => {
+                console.log(response)
+            },
+            (error) => {
+                console.log(error)
+            })
+    },
 
     _handleLocalStorage: function() {
         localStorage.removeItem('token')
