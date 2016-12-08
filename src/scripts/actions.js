@@ -21,6 +21,13 @@ const ACTIONS = {
         })
     },
 
+    _loginUser: function(userObj) {
+        User.login(userObj).then( () => this._getUserToken(userObj),
+            (error) => {
+                console.log(error)
+            })
+    }
+
     _getUserToken:function(userObj) {
         console.log(userObj)
         User.getToken(userObj).then(

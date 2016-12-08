@@ -19,6 +19,13 @@ UserAuthModel.register = function(newUserData) {
     })
 }
 
+UserAuthModel.login = function(userData) {
+    return $.ajax({
+        method: 'POST',
+        url: 'https://tx-recordbleach-api.herokuapp.com/api/sign_in'
+    })
+},
+
 UserAuthModel.getToken = function(userData) {
 
     return $.ajax({
