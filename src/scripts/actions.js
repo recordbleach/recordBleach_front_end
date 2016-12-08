@@ -15,14 +15,15 @@ const ACTIONS = {
         var userObj =  {
             user: newUserObj
         }
-        User.register(userObj).then(() => this._loginUser(newUserObj),
+        User.register(userObj).then(() => this._getUserToken(newUserObj),
             (error) => {
                 console.log(error)
         })
     },
 
-    _loginUser:function(userObj) {
-        User.login(userObj).then(
+    _getUserToken:function(userObj) {
+        console.log(userObj)
+        User.getToken(userObj).then(
             (response) => {
                 location.hash = 'dataInput'
             },

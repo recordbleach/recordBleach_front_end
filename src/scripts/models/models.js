@@ -14,12 +14,12 @@ UserAuthModel.register = function(newUserData) {
         url: 'https://tx-recordbleach-api.herokuapp.com/api/registrations',
         data: newUserData
     }).then((newUser) => {
-
+        console.log(newUser)
         localStorage['currentUser'] = newUser.user.id
     })
 }
 
-UserAuthModel.login = function(userData) {
+UserAuthModel.getToken = function(userData) {
 
     return $.ajax({
         method: 'POST',
@@ -28,6 +28,7 @@ UserAuthModel.login = function(userData) {
             grant_type: 'password'
         })
     }).then((tokenData) => {
+        console.log(tokenData)
         localStorage['token'] = tokenData.access_token
         location.hash = 'dataInput'
     })
