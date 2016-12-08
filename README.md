@@ -2,7 +2,7 @@
 
 In Texas, many police officers use previous arrest records -- not convictions -- as a way of exercising their discretion over whether someone should be arrested. An arrest stays on your record, even if the charges are dropped or if you are found not guilty. The Texas Criminal Code contains a Right to Expunction.
 
-Record Bleach is an open source project created during the Tech for Justice Hackathon, to provide Texans who qualify iwht a tool to generate a Petition for Expunction, along with an Order Setting Hearing, and a Proposed Order of Expunction.
+Record Bleach is an open source project created during the Tech for Justice Hackathon, to provide Texans who qualify with a tool to generate a Petition for Expunction, along with an Order Setting Hearing, and a Proposed Order of Expunction.
 
 The website has a tool to determine if an individual qualifies for expunction. If a user meets the criteria, they can create a temporary user account that will allow them to provide the necessary information. The user will then download/email the PDF containing the Petition, Order Setting Hearing, and Proposed Order of Expunction, along with some basic information (court addresses, filing fees, notary info, courthouse parking, etc.)  When the user signs out, their user data is deleted. We will not store any identifying information for longer than 24 hours. We are going to set up a nightly cron job to compile basic usage information (# of qualifications, conversions, number of forms started vs completed, etc.)
 

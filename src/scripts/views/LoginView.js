@@ -32,6 +32,15 @@ const Login = React.createClass({
         }
     },
 
+    _handleLogin: function(evt) {
+        evt.preventDefault()
+
+        ACTIONS._loginUser({
+            email: evt.target.loginEmail.value,
+            password: evt.target.loginPassword.value
+        })
+    },
+
     render: function() {
         return (
             <div className = 'signinForm'>
