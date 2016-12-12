@@ -15,14 +15,22 @@ const ACTIONS = {
         var userObj =  {
             user: newUserObj
         }
-        User.register(userObj).then(() => this._loginUser(newUserObj),
+        User.register(userObj).then(() => this._getUserToken(newUserObj),
             (error) => {
                 console.log(error)
         })
     },
 
-    _loginUser:function(userObj) {
-        User.login(userObj).then(
+    _loginUser: function(userObj) {
+        User.login(userObj).then(() => this._getUserToken(userObj),
+            (error) => {
+                console.log(error)
+            })
+    }
+
+    _getUserToken:function(userObj) {
+        console.log(userObj)
+        User.getToken(userObj).then(
             (response) => {
                 location.hash = 'dataInput'
             },
@@ -51,20 +59,6 @@ const ACTIONS = {
         User.logout().then( () => {
             this._handleLocalStorage()
         })
-    },
-
-    _destroyUser: function() {
-        // console.log(localStorage)
-        // User.userDestroy().then ( () => {
-        //     this._handleLocalStorage()
-        // })
-        Backbone.User.destroy().then(
-            (response) => {
-                console.log(response)
-            },
-            (error) => {
-                console.log(error)
-            })
     },
 
     _handleLocalStorage: function() {
