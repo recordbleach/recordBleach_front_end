@@ -1,5 +1,5 @@
 * {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Avenir, Arial, sans-serif;
 	box-sizing: border-box;
 }
 
@@ -15,4 +15,15 @@
 
 .petition h3{
 	cursor: pointer;
+}
+header{
+	border: 5px solid black;
+	padding: 10px;
+	text-align: center;
+	align-content: center;
+	width: 60%;
+}
+.header{
+	width: 60%;
+	background-color: red;
 }

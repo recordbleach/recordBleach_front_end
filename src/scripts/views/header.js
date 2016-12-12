@@ -4,7 +4,7 @@ var Header = React.createClass({
 	render: function(){
 		return (
 			<header>
-				<h1>Record Bleach</h1>
+				<h1>RECORD BLEACH</h1>
 			</header>
 		)
 	}
