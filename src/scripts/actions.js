@@ -22,6 +22,7 @@ const ACTIONS = {
     },
 
     _loginUser: function(userObj) {
+        console.log(userObj)
         User.login(userObj).then(() => this._getUserToken(userObj),
             (error) => {
                 console.log(error)
@@ -29,7 +30,7 @@ const ACTIONS = {
     },
 
     _getUserToken:function(userObj) {
-        console.log(userObj)
+        // console.log(userObj)
         User.getToken(userObj).then(
             (response) => {
                 location.hash = 'dataInput'
@@ -40,7 +41,7 @@ const ACTIONS = {
     },
 
     _submitPetition: function(newPetitionObj) {
-        console.log(newPetitionObj)
+        // console.log(newPetitionObj)
         var petitionObj = {
             petition: newPetitionObj
         }

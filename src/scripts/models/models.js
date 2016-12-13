@@ -53,6 +53,20 @@ UserAuthModel.logout = function() {
     (error) => {
         console.log(error)
     })
+},
+
+UserAuthModel.login = function(userData) {
+    console.log(userData)
+    return $.ajax({
+        method: 'POST',
+        url: 'https://tx-recordbleach-api.herokuapp.com/api/sign_in',
+        data: userData
+    }).then((response) => {
+        console.log(response)
+    },
+    (error) => {
+        console.log(error)
+    })
 }
 
 export const User = UserAuthModel.extend({
