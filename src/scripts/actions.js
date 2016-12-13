@@ -26,7 +26,7 @@ const ACTIONS = {
             (error) => {
                 console.log(error)
             })
-    }
+    },
 
     _getUserToken:function(userObj) {
         console.log(userObj)

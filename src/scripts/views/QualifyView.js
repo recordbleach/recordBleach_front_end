@@ -23,7 +23,7 @@ const QualifyForm = React.createClass({
     render: function() {
 
         return (
-            <div className = 'quallifyForm'>
+            <div className = 'qualifyForm'>
 
 
                 <p>Have you been convicted of felony in the past 5 years?</p>
