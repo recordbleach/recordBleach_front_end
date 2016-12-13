@@ -17,13 +17,6 @@ UserAuthModel.register = function(newUserData) {
         console.log(newUser)
         localStorage['currentUser'] = newUser.user.id
     })
-}
-
-UserAuthModel.login = function(userData) {
-    return $.ajax({
-        method: 'POST',
-        url: 'https://tx-recordbleach-api.herokuapp.com/api/sign_in'
-    })
 },
 
 UserAuthModel.getToken = function(userData) {
