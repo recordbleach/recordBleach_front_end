@@ -4,7 +4,7 @@ var Header = React.createClass({
 	render: function(){
 		return (
 			<header>
-				<h1 className= "boxed">RECORD BLEACH</h1>
+				<h1 className= "boxed">RECORD WASH</h1>
                 <nav>
 									<ul className="centered">
 										<li><a className = 'headerLinks'href = '#home'>Home</a></li>

@@ -19,7 +19,7 @@ const HomeBody = React.createClass({
     render: function() {
         return(
             <div className = 'homeBody'>
-                <h1>Welcome to Record Bleach</h1>
+                <h1>Welcome to Record Wash</h1>
                 <p>Turn your sheet white again</p>
             </div>
         )
