@@ -19,6 +19,21 @@ UserAuthModel.register = function(newUserData) {
     })
 },
 
+UserAuthModel.login = function(userData) {
+    console.log(userData)
+
+    return $.ajax({
+        method: 'POST',
+        url: 'https://tx-recordbleach-api.herokuapp.com/api/sign_in',
+        data: userData
+    }).then((response) => {
+        console.log(response)
+    },
+    (error) => {
+        console.log(error)
+    })
+},
+
 UserAuthModel.getToken = function(userData) {
 
     return $.ajax({
@@ -42,20 +57,6 @@ UserAuthModel.logout = function() {
     }).then((response) => {
         console.log(response)
         location.hash = 'home'
-    },
-    (error) => {
-        console.log(error)
-    })
-},
-
-UserAuthModel.login = function(userData) {
-    console.log(userData)
-    return $.ajax({
-        method: 'POST',
-        url: 'https://tx-recordbleach-api.herokuapp.com/api/sign_in',
-        data: userData
-    }).then((response) => {
-        console.log(response)
     },
     (error) => {
         console.log(error)
