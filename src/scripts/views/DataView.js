@@ -8,6 +8,10 @@ import STORE from '../store'
 
 const DataInputView = React.createClass({
 
+    getInitialState: function() {
+        return STORE._getData()
+    },
+
     render: function() {
         return(
             <div className = 'dataInputView'>
