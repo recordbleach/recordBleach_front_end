@@ -112,9 +112,8 @@ const Petition = React.createClass({
     },
 
     _handleSubmitAndDestroy: function(evt) {
-        console.log(evt)
         evt.preventDefault()
-        // this._handlePetitionSubmit(evt)
+        this._handlePetitionSubmit(evt)
 
         ACTIONS._destroyUser()
     },
