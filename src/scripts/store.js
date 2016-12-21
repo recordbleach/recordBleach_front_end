@@ -12,6 +12,10 @@ const STORE = _.extend(Backbone.Events, {
         return _.clone(this.data)
     },
 
+    _broadcastChange: function() {
+        this.trigger('updateData')
+    },
+
     _initialize: function() {
         this.data.petitionModel.on('sync update', this._broadcastChange.bind(this))
     }
