@@ -68,6 +68,12 @@ const ACTIONS = {
         })
     },
 
+    // _fetchPetition: function(petitionQuery) {
+    //     STORE.data.petitionModel.fetch({
+    //         data: petition
+    //     })
+    // },
+
     _handleLocalStorage: function() {
         localStorage.removeItem('token')
         localStorage.removeItem('currentUser')

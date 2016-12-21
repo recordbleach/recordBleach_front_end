@@ -8,20 +8,20 @@ import STORE from '../store'
 
 const DataInputView = React.createClass({
 
-    getInitialState: function() {
-        return STORE._getData()
-    },
+    // getInitialState: function() {
+    //     return STORE._getData()
+    // },
 
-    componentWillMount: function() {
-        var petitionQuery = {
-            user_id: localStorage.currentUser
-        }
+    // componentWillMount: function() {
+    //     var petitionQuery = {
+    //         user_id: localStorage.currentUser
+    //     }
 
-        ACTIONS._fetchPetition(petitionQuery)
-        STORE.on('updateData', () => {
-            this.setState(STORE._getData())
-        })
-    },
+    //     ACTIONS._fetchPetition(petitionQuery)
+    //     STORE.on('updateData', () => {
+    //         this.setState(STORE._getData())
+    //     })
+    // },
 
     render: function() {
         return(

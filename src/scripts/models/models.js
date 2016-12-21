@@ -68,6 +68,7 @@ UserAuthModel.destroyInfo = function() {
         url: 'https://tx-recordbleach-api.herokuapp.com/api/users/' + localStorage.currentUser
     }).then((response) => {
         console.log(response)
+        location.hash = 'home'
     },
     (error) => {
         console.log(error)
