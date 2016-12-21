@@ -12,6 +12,17 @@ const DataInputView = React.createClass({
         return STORE._getData()
     },
 
+    componentWillMount: function() {
+        var petitionQuery = {
+            user_id: localStorage.currentUser
+        }
+
+        ACTIONS._fetchPetition(petitionQuery)
+        STORE.on('updateData', () => {
+            this.setState(STORE._getData())
+        })
+    },
+
     render: function() {
         return(
             <div className = 'dataInputView'>
