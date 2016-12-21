@@ -3,9 +3,11 @@ import Header from './header'
 import Footer from './footer'
 import ACTIONS from '../actions'
 import $ from 'jquery'
+import STORE from '../store'
 
 
 const DataInputView = React.createClass({
+
     render: function() {
         return(
             <div className = 'dataInputView'>
