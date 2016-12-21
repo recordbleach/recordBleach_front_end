@@ -63,7 +63,15 @@ UserAuthModel.logout = function() {
 },
 
 UserAuthModel.destroyInfo = function() {
-
+    return $.ajax({
+        method: 'DELETE',
+        url: 'https://tx-recordbleach-api.herokuapp.com/api/users/' + localStorage.currentUser
+    }).then((response) => {
+        console.log(response)
+    },
+    (error) => {
+        console.log(error)
+    })
 }
 
 export const User = UserAuthModel.extend({

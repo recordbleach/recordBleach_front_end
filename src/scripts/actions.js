@@ -48,7 +48,7 @@ const ACTIONS = {
 
     _destroyUser: function() {
         User.destroyInfo().then( () => {
-            this._handleLocalStorage()
+            this._logoutUser()
         })
     },
 
