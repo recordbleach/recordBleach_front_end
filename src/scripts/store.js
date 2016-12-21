@@ -21,6 +21,6 @@ const STORE = _.extend(Backbone.Events, {
     }
 })
 
-STORE_initialize()
+STORE._initialize()
 
 export default STORE
