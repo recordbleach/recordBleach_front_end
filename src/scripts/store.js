@@ -6,5 +6,9 @@ const STORE = _.extend(Backbone.Events, {
 
     data: {
         petitionModel: new PetitionModel()
+    },
+
+    _getData: function() {
+        return _.clone(this.data)
     }
 })
