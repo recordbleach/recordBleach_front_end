@@ -20,3 +20,7 @@ const STORE = _.extend(Backbone.Events, {
         this.data.petitionModel.on('sync update', this._broadcastChange.bind(this))
     }
 })
+
+STORE_initialize()
+
+export default STORE
