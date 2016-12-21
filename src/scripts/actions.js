@@ -40,6 +40,18 @@ const ACTIONS = {
             })
     },
 
+    _logoutUser: function() {
+        User.logout().then( () => {
+            this._handleLocalStorage()
+        })
+    },
+
+    _destroyUser: function() {
+        User.destroyInfo().then( () => {
+            this._handleLocalStorage()
+        })
+    },
+
     _submitPetition: function(newPetitionObj) {
         // console.log(newPetitionObj)
         var petitionObj = {
@@ -53,12 +65,6 @@ const ACTIONS = {
             },
             (error) => {
                 console.log(error)
-        })
-    },
-
-    _logoutUser: function() {
-        User.logout().then( () => {
-            this._handleLocalStorage()
         })
     },
 
