@@ -71,7 +71,6 @@ const ACTIONS = {
     _handleLocalStorage: function() {
         localStorage.removeItem('token')
         localStorage.removeItem('currentUser')
-        location.hash = 'home'
     }
 }
 

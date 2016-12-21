@@ -50,7 +50,6 @@ UserAuthModel.getToken = function(userData) {
 },
 
 UserAuthModel.logout = function() {
-
     return $.ajax({
         method: 'GET',
         url: 'https://tx-recordbleach-api.herokuapp.com/api/sign_out'
@@ -61,6 +60,10 @@ UserAuthModel.logout = function() {
     (error) => {
         console.log(error)
     })
+},
+
+UserAuthModel.destroyInfo = function() {
+
 }
 
 export const User = UserAuthModel.extend({
