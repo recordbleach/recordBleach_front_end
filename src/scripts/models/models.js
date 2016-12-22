@@ -7,7 +7,6 @@ const UserAuthModel = Backbone.Model.extend({
 })
 
 UserAuthModel.register = function(newUserData) {
-
     return $.ajax({
         method: 'POST',
         type: 'json',
@@ -21,7 +20,6 @@ UserAuthModel.register = function(newUserData) {
 
 UserAuthModel.login = function(userData) {
     console.log(userData)
-
     return $.ajax({
         method: 'POST',
         url: 'https://tx-recordbleach-api.herokuapp.com/api/sign_in',
@@ -68,7 +66,6 @@ UserAuthModel.destroyInfo = function() {
         url: 'https://tx-recordbleach-api.herokuapp.com/api/users/' + localStorage.currentUser
     }).then((response) => {
         console.log(response)
-        location.hash = 'home'
     },
     (error) => {
         console.log(error)
