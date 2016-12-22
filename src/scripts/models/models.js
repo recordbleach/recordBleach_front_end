@@ -2,7 +2,7 @@ import Backbone from 'backbone'
 import $ from 'jquery'
 
 const UserAuthModel = Backbone.Model.extend({
-    url: 'https://tx-recordbleach-api.herokuapp.com/',
+    url: 'http://localhost:4567/',
     idAttribute: 'id'
 })
 
@@ -11,7 +11,7 @@ UserAuthModel.register = function(newUserData) {
     return $.ajax({
         method: 'POST',
         type: 'json',
-        url: 'https://tx-recordbleach-api.herokuapp.com/api/registrations',
+        url: 'http://localhost:4567/api/registrations',
         data: newUserData
     }).then((newUser) => {
         console.log(newUser)
@@ -24,7 +24,7 @@ UserAuthModel.login = function(userData) {
 
     return $.ajax({
         method: 'POST',
-        url: 'https://tx-recordbleach-api.herokuapp.com/api/sign_in',
+        url: 'http://localhost:4567/api/sign_in',
         data: userData
     }).then((response) => {
         console.log(response)
@@ -38,7 +38,7 @@ UserAuthModel.getToken = function(userData) {
 
     return $.ajax({
         method: 'POST',
-        url: 'https://tx-recordbleach-api.herokuapp.com/oauth/token',
+        url: 'http://localhost:4567/oauth/token',
         data: $.extend(userData, {
             grant_type: 'password'
         })
@@ -52,7 +52,7 @@ UserAuthModel.getToken = function(userData) {
 UserAuthModel.logout = function() {
     return $.ajax({
         method: 'GET',
-        url: 'https://tx-recordbleach-api.herokuapp.com/api/sign_out'
+        url: 'http://localhost:4567/api/sign_out'
     }).then((response) => {
         console.log(response)
         location.hash = 'home'
@@ -65,7 +65,7 @@ UserAuthModel.logout = function() {
 UserAuthModel.destroyInfo = function() {
     return $.ajax({
         method: 'DELETE',
-        url: 'https://tx-recordbleach-api.herokuapp.com/api/users/' + localStorage.currentUser
+        url: 'http://localhost:4567/api/users/' + localStorage.currentUser
     }).then((response) => {
         console.log(response)
         location.hash = 'home'
@@ -81,6 +81,6 @@ export const User = UserAuthModel.extend({
 
 
 export const PetitionModel = Backbone.Model.extend({
-    url: 'https://tx-recordbleach-api.herokuapp.com/api/petitions',
+    url: 'http://localhost:4567/api/petitions',
     idAttribute: 'id'
 })
